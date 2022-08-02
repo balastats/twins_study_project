@@ -1,0 +1,55 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\new data\twins.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}28 Jul 2022, 13:10:00
+
+{com}. tab Zygo_PP
+
+    {txt}Zygo_PP {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         DZ {c |}{res}         36       48.65       48.65
+{txt}         MZ {c |}{res}         38       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. tab Zygo_PP if tag ==1
+
+    {txt}Zygo_PP {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         DZ {c |}{res}         18       48.65       48.65
+{txt}         MZ {c |}{res}         19       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. ta chor
+
+       {txt}chor {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10       13.51       13.51
+{txt}          1 {c |}{res}         32       43.24       56.76
+{txt}          2 {c |}{res}         32       43.24      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. tab Zygo_PP chor
+
+           {txt}{c |}               chor
+   Zygo_PP {c |}         0          1          2 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+        DZ {c |}{res}         6          8         22 {txt}{c |}{res}        36 
+{txt}        MZ {c |}{res}         4         24         10 {txt}{c |}{res}        38 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        10         32         32 {txt}{c |}{res}        74 
+
+
+{com}. ed c*
+
+. ed C*
+
+. ed
+
+. ed
+
+. exit, clear

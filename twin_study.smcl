@@ -1,0 +1,3203 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twin_study.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}21 Jul 2022, 16:28:27
+
+{com}. merge 1:1 studyno using  "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twin_study_final.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               2
+{txt}{col 9}from master{col 30}{res}               0{txt}  (_merge==1)
+{col 9}from using{col 30}{res}               2{txt}  (_merge==2)
+
+{col 5}matched{col 30}{res}              37{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. ed
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study.dta"
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study.dta saved
+
+{com}. ed
+
+. tab _merge
+
+                 {txt}_merge {c |}      Freq.     Percent        Cum.
+{hline 24}{c +}{hline 35}
+         using only (2) {c |}{res}          2        5.13        5.13
+{txt}            matched (3) {c |}{res}         37       94.87      100.00
+{txt}{hline 24}{c +}{hline 35}
+                  Total {c |}{res}         39      100.00
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. drop _merge==2
+{err}== invalid name
+{txt}{search r(198):r(198);}
+
+{com}. drop if  _merge==2
+{txt}(2 observations deleted)
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ed
+
+. tab _merge
+
+                 {txt}_merge {c |}      Freq.     Percent        Cum.
+{hline 24}{c +}{hline 35}
+            matched (3) {c |}{res}         37      100.00      100.00
+{txt}{hline 24}{c +}{hline 35}
+                  Total {c |}{res}         37      100.00
+
+{com}. drop _merge
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ed
+
+. tab zygos
+
+      {txt}zygos {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         12       32.43       32.43
+{txt}          2 {c |}{res}         20       54.05       86.49
+{txt}          3 {c |}{res}          5       13.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. tab Zygo_PP
+
+    {txt}Zygo_PP {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         DZ {c |}{res}         18       48.65       48.65
+{txt}         MZ {c |}{res}         19       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. h chi2
+
+. chi2(Zygo_PP )
+{err}command {bf}chi2{sf} is unrecognized
+{txt}{search r(199):r(199);}
+
+{com}. chi2 Zygo_PP , row
+{err}command {bf}chi2{sf} is unrecognized
+{txt}{search r(199):r(199);}
+
+{com}. tab Zygo_PP , chi2 row
+{err}option {bf:chi2} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. tab Zygo_PP , chi
+{err}option {bf:chi} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. h chi
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ed
+
+. ed ag*
+
+. tab agegroup
+
+   {txt}agegroup {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         12       32.43       32.43
+{txt}          2 {c |}{res}         12       32.43       64.86
+{txt}          3 {c |}{res}         13       35.14      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. tab agegroup_new
+
+{txt}agegroup_ne {c |}
+          w {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         18       48.65       48.65
+{txt}          2 {c |}{res}         19       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. ed
+
+. ed ag*
+
+. ed
+
+. ed ag*
+
+. ed
+
+. tab agegroup
+
+   {txt}agegroup {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         12       32.43       32.43
+{txt}          2 {c |}{res}         12       32.43       64.86
+{txt}          3 {c |}{res}         13       35.14      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. ed
+
+. tab agegroup_new  Zygo_PP, chi2 exact
+
+{txt}agegroup_n {c |}        Zygo_PP
+        ew {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}         8         10 {txt}{c |}{res}        18 
+{txt}         2 {c |}{res}        10          9 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+
+{txt}          Pearson chi2({res}1{txt}) = {res}  0.2480  {txt} Pr = {res}0.618
+{txt}           Fisher's exact =                 {res}0.746
+{txt}   1-sided Fisher's exact =                 {res}0.433
+
+{com}. tab sex   Zygo_PP, chi2 exact
+
+{text}Enumerating sample-space combinations:
+{text}stage 3:{col 11}enumerations = 1
+{text}stage 2:{col 11}enumerations = 1
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+       sex {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}         4          7 {txt}{c |}{res}        11 
+{txt}         2 {c |}{res}         0         12 {txt}{c |}{res}        12 
+{txt}         3 {c |}{res}        14          0 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+
+{txt}          Pearson chi2({res}2{txt}) = {res} 26.8107  {txt} Pr = {res}0.000
+{txt}           Fisher's exact =                 {res}0.000
+
+{com}. tab sex   Zygo_PP,col  chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 3:{col 11}enumerations = 1
+{text}stage 2:{col 11}enumerations = 1
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+       sex {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}         4          7 {txt}{c |}{res}        11 
+           {txt}{c |}{res}     22.22      36.84 {txt}{c |}{res}     29.73 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}         0         12 {txt}{c |}{res}        12 
+           {txt}{c |}{res}      0.00      63.16 {txt}{c |}{res}     32.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}        14          0 {txt}{c |}{res}        14 
+           {txt}{c |}{res}     77.78       0.00 {txt}{c |}{res}     37.84 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res} 26.8107  {txt} Pr = {res}0.000
+{txt}           Fisher's exact =                 {res}0.000
+
+{com}. 
+. ttest mage  by(Zygo_PP)
+{err}factor variables and time-series operators not allowed
+{txt}{search r(101):r(101);}
+
+{com}. ttest mage, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 26.22222{col 34} 1.024394{col 46} 4.346135{col 58} 24.06094{col 70}  28.3835
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 23.05263{col 34} 1.060932{col 46} 4.624496{col 58}  20.8237{col 70} 25.28157
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 24.59459{col 34} .7744604{col 46} 4.710859{col 58} 23.02392{col 70} 26.16527
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 3.169591{col 34} 1.477318{col 58} .1704747{col 70} 6.168707
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  2.1455
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9805         {txt}Pr(|T| > |t|) = {res}0.0389          {txt}Pr(T > t) = {res}0.0195
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. exit, clear
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twin_study.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 Jul 2022, 08:26:09
+
+{com}. ed
+
+. tab gender
+
+     {txt}gender {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         11       29.73       29.73
+{txt}          2 {c |}{res}          5       13.51       43.24
+{txt}          3 {c |}{res}          9       24.32       67.57
+{txt}          4 {c |}{res}         12       32.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. tab sex
+
+        {txt}sex {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         11       29.73       29.73
+{txt}          2 {c |}{res}         12       32.43       62.16
+{txt}          3 {c |}{res}         14       37.84      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. h test
+
+. h ttest
+
+. ttest mage, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 26.22222{col 34} 1.024394{col 46} 4.346135{col 58} 24.06094{col 70}  28.3835
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 23.05263{col 34} 1.060932{col 46} 4.624496{col 58}  20.8237{col 70} 25.28157
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 24.59459{col 34} .7744604{col 46} 4.710859{col 58} 23.02392{col 70} 26.16527
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 3.169591{col 34} 1.477318{col 58} .1704747{col 70} 6.168707
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  2.1455
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9805         {txt}Pr(|T| > |t|) = {res}0.0389          {txt}Pr(T > t) = {res}0.0195
+
+{com}. ttest fage, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 27.83333{col 34} 3.216837{col 46} 13.64788{col 58}  21.0464{col 70} 34.62027
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 24.57895{col 34} 3.159795{col 46} 13.77323{col 58} 17.94046{col 70} 31.21743
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 26.16216{col 34}  2.23926{col 46} 13.62089{col 58} 21.62073{col 70} 30.70359
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 3.254386{col 34} 4.510286{col 58}-5.901981{col 70} 12.41075
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.7215
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.7623         {txt}Pr(|T| > |t|) = {res}0.4754          {txt}Pr(T > t) = {res}0.2377
+
+{com}. ed
+
+. tab BIRTHOR1
+
+   {txt}BIRTHOR1 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}          6       20.00       20.00
+{txt}          2 {c |}{res}         13       43.33       63.33
+{txt}          3 {c |}{res}          6       20.00       83.33
+{txt}          4 {c |}{res}          2        6.67       90.00
+{txt}          5 {c |}{res}          2        6.67       96.67
+{txt}          6 {c |}{res}          1        3.33      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         30      100.00
+
+{com}. ed *W
+
+. ed
+
+. ed B*
+
+. ed
+
+. list HT1HEIGH
+{txt}
+     {c TLC}{hline 10}{c TRC}
+     {c |} {res}HT1HEIGH {txt}{c |}
+     {c LT}{hline 10}{c RT}
+  1. {c |} {res}     163 {txt}{c |}
+  2. {c |} {res}       . {txt}{c |}
+  3. {c |} {res}     173 {txt}{c |}
+  4. {c |} {res}     148 {txt}{c |}
+  5. {c |} {res}     163 {txt}{c |}
+     {c LT}{hline 10}{c RT}
+  6. {c |} {res}     166 {txt}{c |}
+  7. {c |} {res}     156 {txt}{c |}
+  8. {c |} {res}     171 {txt}{c |}
+  9. {c |} {res}     160 {txt}{c |}
+ 10. {c |} {res}     149 {txt}{c |}
+     {c LT}{hline 10}{c RT}
+ 11. {c |} {res}     167 {txt}{c |}
+ 12. {c |} {res}     155 {txt}{c |}
+ 13. {c |} {res}     139 {txt}{c |}
+ 14. {c |} {res}     161 {txt}{c |}
+ 15. {c |} {res}       . {txt}{c |}
+     {c LT}{hline 10}{c RT}
+ 16. {c |} {res}     167 {txt}{c |}
+ 17. {c |} {res}     157 {txt}{c |}
+ 18. {c |} {res}     164 {txt}{c |}
+ 19. {c |} {res}     152 {txt}{c |}
+ 20. {c |} {res}     151 {txt}{c |}
+     {c LT}{hline 10}{c RT}
+ 21. {c |} {res}     167 {txt}{c |}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. lable
+{err}command {bf}lable{sf} is unrecognized
+{txt}{search r(199):r(199);}
+
+{com}. h label
+
+. label list
+
+. ed HT1HEIGH WT1WEIGH BIRTHOR1 BIRTHWT2 HT2HEIGH WT2WEIGH ht wt pih pwt
+
+. tab BIRTHOR1
+
+   {txt}BIRTHOR1 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}          6       20.00       20.00
+{txt}          2 {c |}{res}         13       43.33       63.33
+{txt}          3 {c |}{res}          6       20.00       83.33
+{txt}          4 {c |}{res}          2        6.67       90.00
+{txt}          5 {c |}{res}          2        6.67       96.67
+{txt}          6 {c |}{res}          1        3.33      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         30      100.00
+
+{com}. tab BIRTHWT2
+
+   {txt}BIRTHWT2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        300 {c |}{res}          1        3.03        3.03
+{txt}       1000 {c |}{res}          1        3.03        6.06
+{txt}       1200 {c |}{res}          1        3.03        9.09
+{txt}       1400 {c |}{res}          1        3.03       12.12
+{txt}       1500 {c |}{res}          1        3.03       15.15
+{txt}       1550 {c |}{res}          2        6.06       21.21
+{txt}       1600 {c |}{res}          1        3.03       24.24
+{txt}       1800 {c |}{res}          1        3.03       27.27
+{txt}       2000 {c |}{res}          4       12.12       39.39
+{txt}       2300 {c |}{res}          1        3.03       42.42
+{txt}       2350 {c |}{res}          1        3.03       45.45
+{txt}       2400 {c |}{res}          1        3.03       48.48
+{txt}       2450 {c |}{res}          1        3.03       51.52
+{txt}       2500 {c |}{res}          9       27.27       78.79
+{txt}       2650 {c |}{res}          1        3.03       81.82
+{txt}       2700 {c |}{res}          1        3.03       84.85
+{txt}       2750 {c |}{res}          2        6.06       90.91
+{txt}       3500 {c |}{res}          1        3.03       93.94
+{txt}       7000 {c |}{res}          1        3.03       96.97
+{txt}       8000 {c |}{res}          1        3.03      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         33      100.00
+
+{com}. tab BIRTHWT2, miss
+
+   {txt}BIRTHWT2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        300 {c |}{res}          1        2.70        2.70
+{txt}       1000 {c |}{res}          1        2.70        5.41
+{txt}       1200 {c |}{res}          1        2.70        8.11
+{txt}       1400 {c |}{res}          1        2.70       10.81
+{txt}       1500 {c |}{res}          1        2.70       13.51
+{txt}       1550 {c |}{res}          2        5.41       18.92
+{txt}       1600 {c |}{res}          1        2.70       21.62
+{txt}       1800 {c |}{res}          1        2.70       24.32
+{txt}       2000 {c |}{res}          4       10.81       35.14
+{txt}       2300 {c |}{res}          1        2.70       37.84
+{txt}       2350 {c |}{res}          1        2.70       40.54
+{txt}       2400 {c |}{res}          1        2.70       43.24
+{txt}       2450 {c |}{res}          1        2.70       45.95
+{txt}       2500 {c |}{res}          9       24.32       70.27
+{txt}       2650 {c |}{res}          1        2.70       72.97
+{txt}       2700 {c |}{res}          1        2.70       75.68
+{txt}       2750 {c |}{res}          2        5.41       81.08
+{txt}       3500 {c |}{res}          1        2.70       83.78
+{txt}       7000 {c |}{res}          1        2.70       86.49
+{txt}       8000 {c |}{res}          1        2.70       89.19
+{txt}          . {c |}{res}          4       10.81      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. tab pi
+{bf}{err}pi{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. tab pih
+
+        {txt}pih {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         12       32.43       32.43
+{txt}          2 {c |}{res}         25       67.57      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. tab pwt
+
+        {txt}pwt {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          4       10.81       10.81
+{txt}        300 {c |}{res}          1        2.70       13.51
+{txt}        350 {c |}{res}          1        2.70       16.22
+{txt}        500 {c |}{res}          2        5.41       21.62
+{txt}        550 {c |}{res}          1        2.70       24.32
+{txt}        600 {c |}{res}          1        2.70       27.03
+{txt}        700 {c |}{res}          4       10.81       37.84
+{txt}        750 {c |}{res}          5       13.51       51.35
+{txt}        800 {c |}{res}          4       10.81       62.16
+{txt}        850 {c |}{res}          1        2.70       64.86
+{txt}        900 {c |}{res}          2        5.41       70.27
+{txt}        940 {c |}{res}          1        2.70       72.97
+{txt}        950 {c |}{res}          3        8.11       81.08
+{txt}       1000 {c |}{res}          4       10.81       91.89
+{txt}       1200 {c |}{res}          1        2.70       94.59
+{txt}       1300 {c |}{res}          1        2.70       97.30
+{txt}       2100 {c |}{res}          1        2.70      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         37      100.00
+
+{com}. ed
+
+. ed HT1HEIGH WT1WEIGH BIRTHOR1 BIRTHWT2 HT2HEIGH WT2WEIGH ht wt pih pwt
+
+. ttest fage, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 27.83333{col 34} 3.216837{col 46} 13.64788{col 58}  21.0464{col 70} 34.62027
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 24.57895{col 34} 3.159795{col 46} 13.77323{col 58} 17.94046{col 70} 31.21743
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 26.16216{col 34}  2.23926{col 46} 13.62089{col 58} 21.62073{col 70} 30.70359
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 3.254386{col 34} 4.510286{col 58}-5.901981{col 70} 12.41075
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.7215
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.7623         {txt}Pr(|T| > |t|) = {res}0.4754          {txt}Pr(T > t) = {res}0.2377
+
+{com}. ttest ht, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 126.9167{col 34} 13.85677{col 46} 58.78932{col 58} 97.68143{col 70} 156.1519
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 120.4737{col 34}  14.7163{col 46} 64.14685{col 58} 89.55589{col 70} 151.3915
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 123.6081{col 34} 10.00021{col 46}  60.8289{col 58} 103.3267{col 70} 143.8895
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 6.442982{col 34} 20.26229{col 58}-34.69166{col 70} 47.57762
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.3180
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.6238         {txt}Pr(|T| > |t|) = {res}0.7524          {txt}Pr(T > t) = {res}0.3762
+
+{com}. ttest wt, by(Zygo_PP)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 42.33333{col 34} 4.926214{col 46} 20.90015{col 58} 31.93993{col 70} 52.72674
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 40.96316{col 34} 5.130127{col 46}  22.3617{col 58} 30.18516{col 70} 51.74115
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 41.62973{col 34}   3.5136{col 46}  21.3724{col 58} 34.50382{col 70} 48.75564
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 1.370175{col 34} 7.125724{col 58}-13.09581{col 70} 15.83616
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.1923
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.5757         {txt}Pr(|T| > |t|) = {res}0.8486          {txt}Pr(T > t) = {res}0.4243
+
+{com}. d
+
+{txt}Contains data from {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta
+{txt}  obs:{res}            37                          
+{txt} vars:{res}           238                          22 Jul 2022 06:33
+{txt} size:{res}        27,232                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:FAMCLUSN       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}FAMCLUSN{p_end}
+{p 0 48}{bind:studyno        }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}studyno{p_end}
+{p 0 48}{bind:AXLENRE1       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}AXLENRE1{p_end}
+{p 0 48}{bind:AXLENRE2       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}AXLENRE2{p_end}
+{p 0 48}{bind:ANTCHAMR       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAMR{p_end}
+{p 0 48}{bind:ANTCHAM1       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAM1{p_end}
+{p 0 48}{bind:SPECRE1S       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}SPECRE1S{p_end}
+{p 0 48}{bind:SPECRE2S       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}SPECRE2S{p_end}
+{p 0 48}{bind:GENTWIN        }{txt}{bind: str4    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}GENTWIN{p_end}
+{p 0 48}{bind:IOPRE1IO       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}IOPRE1IO{p_end}
+{p 0 48}{bind:IOPRE2IO       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}IOPRE2IO{p_end}
+{p 0 48}{bind:LENSTHIRE2     }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}LENSTHIRE2{p_end}
+{p 0 48}{bind:ANTCHAM2       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAM2{p_end}
+{p 0 48}{bind:CORNEAL1       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}CORNEAL1{p_end}
+{p 0 48}{bind:CORNEAL2       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}CORNEAL2{p_end}
+{p 0 48}{bind:Zygo_PP        }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}Zygo_PP{p_end}
+{p 0 48}{bind:HT1HEIGH       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}HT1HEIGH{p_end}
+{p 0 48}{bind:WT1WEIGH       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WT1WEIGH{p_end}
+{p 0 48}{bind:FIRSTSAW       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FIRSTSAW{p_end}
+{p 0 48}{bind:TEACHFRN       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}TEACHFRN{p_end}
+{p 0 48}{bind:PARENTOT       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PARENTOT{p_end}
+{p 0 48}{bind:FRATEROR       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FRATEROR{p_end}
+{p 0 48}{bind:VISACDRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDRE{p_end}
+{p 0 48}{bind:VISACDLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDLE{p_end}
+{p 0 48}{bind:VISACNRE       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNRE{p_end}
+{p 0 48}{bind:VISACNLE       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNLE{p_end}
+{p 0 48}{bind:STEACUT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}STEACUT1{p_end}
+{p 0 48}{bind:AMP1AMPL       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AMP1AMPL{p_end}
+{p 0 48}{bind:REFSPHRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHRE{p_end}
+{p 0 48}{bind:REFSPHLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHLE{p_end}
+{p 0 48}{bind:REFCYLRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLRE{p_end}
+{p 0 48}{bind:REFCYLLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLLE{p_end}
+{p 0 48}{bind:REFCYLAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLAX{p_end}
+{p 0 48}{bind:REFERR1        }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}REFERR1{p_end}
+{p 0 48}{bind:AXLENLE1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AXLENLE1{p_end}
+{p 0 48}{bind:LENSTHIC       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHIC{p_end}
+{p 0 48}{bind:LENSTHI1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHI1{p_end}
+{p 0 48}{bind:ANTCHAML       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAML{p_end}
+{p 0 48}{bind:CORNEALR       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CORNEALR{p_end}
+{p 0 48}{bind:CORNEALL       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CORNEALL{p_end}
+{p 0 48}{bind:KERATONR       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATONR{p_end}
+{p 0 48}{bind:KERATODR       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATODR{p_end}
+{p 0 48}{bind:KERAREAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERAREAX{p_end}
+{p 0 48}{bind:KERATONL       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATONL{p_end}
+{p 0 48}{bind:KERATODL       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATODL{p_end}
+{p 0 48}{bind:KERALEAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERALEAX{p_end}
+{p 0 48}{bind:SPECLE1S       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}SPECLE1S{p_end}
+{p 0 48}{bind:RNFLRE1R       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}RNFLRE1R{p_end}
+{p 0 48}{bind:ENDLLE1R       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ENDLLE1R{p_end}
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ed
+
+. ed A*
+
+. ed
+
+. ed A*
+
+. ed
+
+. ed *L
+
+. ed
+
+. ed *ED
+{err}variable *ED not found
+{txt}{search r(111):r(111);}
+
+{com}. ed *E
+
+. ed E*
+
+. ed K*
+
+. ed
+
+. ed
+
+. ed
+
+. ed W*
+
+. ed B*
+
+. ed
+
+. ed B*
+
+. tab BIRTHWT2
+
+   {txt}BIRTHWT2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        300 {c |}{res}          1        3.03        3.03
+{txt}       1000 {c |}{res}          1        3.03        6.06
+{txt}       1200 {c |}{res}          1        3.03        9.09
+{txt}       1400 {c |}{res}          1        3.03       12.12
+{txt}       1500 {c |}{res}          1        3.03       15.15
+{txt}       1550 {c |}{res}          2        6.06       21.21
+{txt}       1600 {c |}{res}          1        3.03       24.24
+{txt}       1800 {c |}{res}          1        3.03       27.27
+{txt}       2000 {c |}{res}          4       12.12       39.39
+{txt}       2300 {c |}{res}          1        3.03       42.42
+{txt}       2350 {c |}{res}          1        3.03       45.45
+{txt}       2400 {c |}{res}          1        3.03       48.48
+{txt}       2450 {c |}{res}          1        3.03       51.52
+{txt}       2500 {c |}{res}          9       27.27       78.79
+{txt}       2650 {c |}{res}          1        3.03       81.82
+{txt}       2700 {c |}{res}          1        3.03       84.85
+{txt}       2750 {c |}{res}          2        6.06       90.91
+{txt}       3500 {c |}{res}          1        3.03       93.94
+{txt}       7000 {c |}{res}          1        3.03       96.97
+{txt}       8000 {c |}{res}          1        3.03      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         33      100.00
+
+{com}. dis 1500/1000
+{res}1.5
+
+{com}. gen bw_kg=BIRTHWT2 /1000
+{txt}(4 missing values generated)
+
+{com}. replace bw_kg=round(bw_kg )
+{txt}(26 real changes made)
+
+{com}. ttest bw_kg , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     16{col 22}     2.25{col 34}      .25{col 46}        1{col 58} 1.717138{col 70} 2.782862
+      {txt}MZ {c |}{res}{col 12}     17{col 22}        3{col 34} .4372373{col 46} 1.802776{col 58} 2.073098{col 70} 3.926902
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     33{col 22} 2.636364{col 34} .2604563{col 46} 1.496207{col 58} 2.105832{col 70} 3.166896
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}     -.75{col 34} .5120697{col 58}-1.794373{col 70}  .294373
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -1.4646
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      31
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0765         {txt}Pr(|T| > |t|) = {res}0.1531          {txt}Pr(T > t) = {res}0.9235
+
+{com}. ttest bw_kg , by(Zygo_PP )miss
+{err}option {bf:miss} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. replace bw_kg =0 if bw_kg ==.
+{txt}(4 real changes made)
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ttest bw_kg , by(Zygo_PP )miss
+{err}option {bf:miss} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. ttest bw_kg , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22}        2{col 34}  .280056{col 46} 1.188177{col 58} 1.409133{col 70} 2.590867
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 2.684211{col 34}  .446249{col 46} 1.945154{col 58} 1.746676{col 70} 3.621745
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 2.351351{col 34} .2690664{col 46} 1.636667{col 58} 1.805659{col 70} 2.897043
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.6842105{col 34} .5335757{col 58}-1.767427{col 70} .3990057
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -1.2823
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1041         {txt}Pr(|T| > |t|) = {res}0.2082          {txt}Pr(T > t) = {res}0.8959
+
+{com}. ed
+
+. gen lbw_kg=bw_kg >2.5
+
+. drop lbw_kg
+
+. gen lbw_kg=bw_kg <2.5
+
+. tab lbw_kg    Zygo_PP, chi2 exact
+
+           {txt}{c |}        Zygo_PP
+    lbw_kg {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}         7          9 {txt}{c |}{res}        16 
+{txt}         1 {c |}{res}        11         10 {txt}{c |}{res}        21 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+
+{txt}          Pearson chi2({res}1{txt}) = {res}  0.2708  {txt} Pr = {res}0.603
+{txt}           Fisher's exact =                 {res}0.743
+{txt}   1-sided Fisher's exact =                 {res}0.426
+
+{com}. tab lbw_kg    Zygo_PP, col chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}        Zygo_PP
+    lbw_kg {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}         7          9 {txt}{c |}{res}        16 
+           {txt}{c |}{res}     38.89      47.37 {txt}{c |}{res}     43.24 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        11         10 {txt}{c |}{res}        21 
+           {txt}{c |}{res}     61.11      52.63 {txt}{c |}{res}     56.76 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}1{txt}) = {res}  0.2708  {txt} Pr = {res}0.603
+{txt}           Fisher's exact =                 {res}0.743
+{txt}   1-sided Fisher's exact =                 {res}0.426
+
+{com}. ed
+
+. ed
+
+. drop bw_kg
+
+. drop lbw_kg
+
+. gen bw_kg=BIRTHWT2 /1000
+{txt}(4 missing values generated)
+
+{com}. replace bw_kg=round(bw_kg )
+{txt}(26 real changes made)
+
+{com}. ttest bw_kg , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     16{col 22}     2.25{col 34}      .25{col 46}        1{col 58} 1.717138{col 70} 2.782862
+      {txt}MZ {c |}{res}{col 12}     17{col 22}        3{col 34} .4372373{col 46} 1.802776{col 58} 2.073098{col 70} 3.926902
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     33{col 22} 2.636364{col 34} .2604563{col 46} 1.496207{col 58} 2.105832{col 70} 3.166896
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}     -.75{col 34} .5120697{col 58}-1.794373{col 70}  .294373
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -1.4646
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      31
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0765         {txt}Pr(|T| > |t|) = {res}0.1531          {txt}Pr(T > t) = {res}0.9235
+
+{com}. gen lbw_kg=bw_kg <2.5
+
+. tab lbw_kg    Zygo_PP, col chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}        Zygo_PP
+    lbw_kg {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}         9         11 {txt}{c |}{res}        20 
+           {txt}{c |}{res}     50.00      57.89 {txt}{c |}{res}     54.05 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}         9          8 {txt}{c |}{res}        17 
+           {txt}{c |}{res}     50.00      42.11 {txt}{c |}{res}     45.95 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}1{txt}) = {res}  0.2320  {txt} Pr = {res}0.630
+{txt}           Fisher's exact =                 {res}0.746
+{txt}   1-sided Fisher's exact =                 {res}0.440
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ed
+
+. ed L*
+
+. ed H*
+
+. ed S*
+
+. ed
+
+. ed
+
+. ed B*
+
+. ed L*
+
+. ed
+
+. ed Ax*
+{err}variable Ax* not found
+{txt}{search r(111):r(111);}
+
+{com}. ed AX*
+
+. ed
+
+. ed A*
+
+. ed
+
+. ed A*
+
+. tab AMP2AMPL
+
+   {txt}AMP2AMPL {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          8 {c |}{res}         22       64.71       64.71
+{txt}          9 {c |}{res}          8       23.53       88.24
+{txt}         10 {c |}{res}          3        8.82       97.06
+{txt}         11 {c |}{res}          1        2.94      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         34      100.00
+
+{com}. ed
+
+. tab AMP1AMPL
+
+   {txt}AMP1AMPL {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          7 {c |}{res}          1        2.78        2.78
+{txt}          8 {c |}{res}         17       47.22       50.00
+{txt}          9 {c |}{res}          7       19.44       69.44
+{txt}         10 {c |}{res}          9       25.00       94.44
+{txt}         11 {c |}{res}          1        2.78       97.22
+{txt}         12 {c |}{res}          1        2.78      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+
+{com}. tab AMP2AMPL     Zygo_PP, col chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 4:{col 11}enumerations = 1
+{text}stage 3:{col 11}enumerations = 0
+{text}stage 2:{col 11}enumerations = 0
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+  AMP2AMPL {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         8 {c |}{res}        11         11 {txt}{c |}{res}        22 
+           {txt}{c |}{res}     68.75      61.11 {txt}{c |}{res}     64.71 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         9 {c |}{res}         4          4 {txt}{c |}{res}         8 
+           {txt}{c |}{res}     25.00      22.22 {txt}{c |}{res}     23.53 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        10 {c |}{res}         1          2 {txt}{c |}{res}         3 
+           {txt}{c |}{res}      6.25      11.11 {txt}{c |}{res}      8.82 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        11 {c |}{res}         0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       5.56 {txt}{c |}{res}      2.94 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        16         18 {txt}{c |}{res}        34 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}3{txt}) = {res}  1.2199  {txt} Pr = {res}0.748
+{txt}           Fisher's exact =                 {res}1.000
+
+{com}. tab AMP2AMPL     Zygo_PP, row chi2 exact
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 4:{col 11}enumerations = 1
+{text}stage 3:{col 11}enumerations = 0
+{text}stage 2:{col 11}enumerations = 0
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+  AMP2AMPL {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         8 {c |}{res}        11         11 {txt}{c |}{res}        22 
+           {txt}{c |}{res}     50.00      50.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         9 {c |}{res}         4          4 {txt}{c |}{res}         8 
+           {txt}{c |}{res}     50.00      50.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        10 {c |}{res}         1          2 {txt}{c |}{res}         3 
+           {txt}{c |}{res}     33.33      66.67 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        11 {c |}{res}         0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        16         18 {txt}{c |}{res}        34 
+           {txt}{c |}{res}     47.06      52.94 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}3{txt}) = {res}  1.2199  {txt} Pr = {res}0.748
+{txt}           Fisher's exact =                 {res}1.000
+
+{com}. tab AMP2AMPL     Zygo_PP, miss row chi2 exact
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 5:{col 11}enumerations = 1
+{text}stage 4:{col 11}enumerations = 0
+{text}stage 3:{col 11}enumerations = 0
+{text}stage 2:{col 11}enumerations = 0
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+  AMP2AMPL {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         8 {c |}{res}        11         11 {txt}{c |}{res}        22 
+           {txt}{c |}{res}     50.00      50.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         9 {c |}{res}         4          4 {txt}{c |}{res}         8 
+           {txt}{c |}{res}     50.00      50.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        10 {c |}{res}         1          2 {txt}{c |}{res}         3 
+           {txt}{c |}{res}     33.33      66.67 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        11 {c |}{res}         0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         . {c |}{res}         2          1 {txt}{c |}{res}         3 
+           {txt}{c |}{res}     66.67      33.33 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+           {txt}{c |}{res}     48.65      51.35 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res}  1.6408  {txt} Pr = {res}0.801
+{txt}           Fisher's exact =                 {res}1.000
+
+{com}. tab AXLENLE2
+
+   {txt}AXLENLE2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+      21.14 {c |}{res}          1        2.70        2.70
+{txt}      21.63 {c |}{res}          1        2.70        5.41
+{txt}      21.65 {c |}{res}          1        2.70        8.11
+{txt}      21.86 {c |}{res}          1        2.70       10.81
+{txt}      22.08 {c |}{res}          1        2.70       13.51
+{txt}      22.17 {c |}{res}          2        5.41       18.92
+{txt}       22.5 {c |}{res}          1        2.70       21.62
+{txt}      22.56 {c |}{res}          1        2.70       24.32
+{txt}       22.6 {c |}{res}          1        2.70       27.03
+{txt}      22.62 {c |}{res}          1        2.70       29.73
+{txt}      22.66 {c |}{res}          1        2.70       32.43
+{txt}      22.76 {c |}{res}          1        2.70       35.14
+{txt}       22.9 {c |}{res}          1        2.70       37.84
+{txt}      22.91 {c |}{res}          1        2.70       40.54
+{txt}      22.95 {c |}{res}          1        2.70       43.24
+{txt}      23.11 {c |}{res}          1        2.70       45.95
+{txt}      23.16 {c |}{res}          2        5.41       51.35
+{txt}       23.2 {c |}{res}          1        2.70       54.05
+{txt}      23.27 {c |}{res}          1        2.70       56.76
+{txt}       23.3 {c |}{res}          1        2.70       59.46
+{txt}      23.33 {c |}{res}          1        2.70       62.16
+{txt}       23.4 {c |}{res}          1        2.70       64.86
+{txt}      23.48 {c |}{res}          1        2.70       67.57
+{txt}      23.51 {c |}{res}          1        2.70       70.27
+{txt}      23.65 {c |}{res}          1        2.70       72.97
+{txt}       23.7 {c |}{res}          1        2.70       75.68
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ed A*
+
+. ed
+
+. ttest AXLENLE2  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 23.21556{col 34} .1690713{col 46} .7173089{col 58} 22.85885{col 70} 23.57226
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 23.38316{col 34} .4592029{col 46} 2.001619{col 58} 22.41841{col 70} 24.34791
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 23.30162{col 34} .2467861{col 46} 1.501141{col 58} 22.80112{col 70} 23.80213
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.1676023{col 34} .4999545{col 58}-1.182564{col 70} .8473592
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.3352
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.3697         {txt}Pr(|T| > |t|) = {res}0.7394          {txt}Pr(T > t) = {res}0.6303
+
+{com}. ed C*
+
+. ttest CORNEAL2  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 546.1111{col 34} 6.420906{col 46}  27.2416{col 58} 532.5642{col 70}  559.658
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 531.6316{col 34} 9.288807{col 46} 40.48897{col 58} 512.1165{col 70} 551.1466
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 538.6757{col 34} 5.751492{col 46} 34.98496{col 58} 527.0111{col 70} 550.3402
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 14.47953{col 34} 11.41089{col 58}-8.685811{col 70} 37.64488
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  1.2689
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.8936         {txt}Pr(|T| > |t|) = {res}0.2128          {txt}Pr(T > t) = {res}0.1064
+
+{com}. ed A*
+
+. ttest ANTCHAM2 , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 3.629444{col 34} .0714302{col 46} .3030526{col 58}  3.47874{col 70} 3.780149
+      {txt}MZ {c |}{res}{col 12}     19{col 22} 3.618421{col 34} .0416492{col 46} .1815447{col 58} 3.530919{col 70} 3.705923
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     37{col 22} 3.623784{col 34}  .040229{col 46} .2447034{col 58} 3.542196{col 70} 3.705372
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .0110234{col 34} .0816078{col 58}-.1546493{col 70} .1766961
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.1351
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      35
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.5533         {txt}Pr(|T| > |t|) = {res}0.8933          {txt}Pr(T > t) = {res}0.4467
+
+{com}. 
+. ed L*
+
+. ttest LENSTHI3  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     18{col 22} 3.674444{col 34} .0830002{col 46}   .35214{col 58} 3.499329{col 70}  3.84956
+      {txt}MZ {c |}{res}{col 12}     18{col 22} 3.466667{col 34} .0444575{col 46} .1886173{col 58}  3.37287{col 70} 3.560464
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     36{col 22} 3.570556{col 34} .0496127{col 46} .2976762{col 58} 3.469836{col 70} 3.671275
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .2077778{col 34} .0941568{col 58} .0164281{col 70} .3991274
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  2.2067
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      34
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9829         {txt}Pr(|T| > |t|) = {res}0.0342          {txt}Pr(T > t) = {res}0.0171
+
+{com}. ed E*
+
+. ttest ENDLLE2R , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     14{col 22}        1{col 34}        0{col 46}        0{col 58}        1{col 70}        1
+      {txt}MZ {c |}{res}{col 12}     16{col 22}        1{col 34}        0{col 46}        0{col 58}        1{col 70}        1
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     30{col 22}        1{col 34}        0{col 46}        0{col 58}        1{col 70}        1
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}        0{col 34}        0{col 58}        0{col 70}        0
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}       .
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      28
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}     .         {txt}Pr(|T| > |t|) = {res}     .          {txt}Pr(T > t) = {res}     .
+
+{com}. tab ENDLLE2R    Zygo_PP, col chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}        Zygo_PP
+  ENDLLE2R {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        14         16 {txt}{c |}{res}        30 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        14         16 {txt}{c |}{res}        30 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+
+{com}. tab ENDLLE2R    Zygo_PP, col chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}        Zygo_PP
+  ENDLLE2R {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        14         16 {txt}{c |}{res}        30 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        14         16 {txt}{c |}{res}        30 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+
+{com}.  ENDLLE2R    Zygo_PP,  chi2 exact
+{err}command {bf}ENDLLE2R{sf} is unrecognized
+{txt}{search r(199):r(199);}
+
+{com}.  tab ENDLLE2R    Zygo_PP,  chi2 exact
+
+           {txt}{c |}        Zygo_PP
+  ENDLLE2R {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        14         16 {txt}{c |}{res}        30 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        14         16 {txt}{c |}{res}        30 
+
+
+{com}. ed
+
+. {smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twin_study.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}25 Jul 2022, 08:26:52
+
+{com}. reshape long Zygo_PP i(studyno Zygo_PP ) j(model)
+{err}option {bf:i()} required
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(198):r(198);}
+
+{com}. reshape long Zygo_PP, i(studyno Zygo_PP ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno , i(studyno Zygo_PP ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno , i(studyno  ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. 
+. reshape long
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno
+{err}option {bf:i()} required
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(198):r(198);}
+
+{com}. reshape long studyno, i(studyno ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long type1 type2, i(studyno ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long type type, i(studyno ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. AXLENRE ANTCHAM1 SPECRE1S IOPRE1IO CORNEAL1 STEACUT1 AMP1AMPL REFERR1 AXLENLE1 LENSTHIC LENSTHI1 SPECLE1S RNFLRE1R ENDLLE1R DILATRE1 DILATLE1 CLOSWRK1 WATCHTV1 COMPTUE1 COMPWED1 COMPFRI1 COMPSAT1 COMPSUN1 TWINNOT1 GENDER1G BIRTHOR1 WEARSPE1 CONSENT1 FIRSTSA1 TEACHFR1 PARENTO1 FRATERO1 VISACDR1 VISACDL1 VISACNR1 VISACNL1 IOPLE1IO REFSPHR1 REFSPHL1 REFCYLR1 REFCYLL1 REFCYLA1 PHY1FACI KERATON1 KERATOD1 KERAREA1 KERALEA1 PLAYGAM1 PLAYGAT1 PLAYGAW1 PLAYGAF1 PLAYGAS1 OUTDORM1 OUTDORT1 OUTDORW1 OUTDORF1 OUTDORS1 COMPTHR1 RECYLAX1 iodfd1 iodmp1
+{err}command {bf}AXLENRE{sf} is unrecognized
+{txt}{search r(199):r(199);}
+
+{com}. reshape long AXLENRE ANTCHAM1 SPECRE1S IOPRE1IO CORNEAL1 STEACUT1 AMP1AMPL REFERR1 AXLENLE1 LENSTHIC LENSTHI1 SPECLE1S RNFLRE1R ENDLLE1R DILATRE1 DILATLE1 CLOSWRK1 WATCHTV1 COMPTUE1 COMPWED1 COMPFRI1 COMPSAT1 COMPSUN1 TWINNOT1 GENDER1G BIRTHOR1 WEARSPE1 CONSENT1 FIRSTSA1 TEACHFR1 PARENTO1 FRATERO1 VISACDR1 VISACDL1 VISACNR1 VISACNL1 IOPLE1IO REFSPHR1 REFSPHL1 REFCYLR1 REFCYLL1 REFCYLA1 PHY1FACI KERATON1 KERATOD1 KERAREA1 KERALEA1 PLAYGAM1 PLAYGAT1 PLAYGAW1 PLAYGAF1 PLAYGAS1 OUTDORM1 OUTDORT1 OUTDORW1 OUTDORF1 OUTDORS1 COMPTHR1 RECYLAX1 iodfd1 iodmp1, i(Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+{err}variable {bf:id} does not uniquely identify the observations
+{p 4 4 2}
+Your data are currently wide.
+You are performing a {bf:reshape long}.
+You specified {bf:i(Zygo_PP)} and {bf:j(model)}.
+In the current wide form, variable {bf:Zygo_PP}
+should uniquely identify the observations.
+Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+{p 4 4 2}
+Type {bf:reshape error} for a list of the
+problem observations.
+{p_end}
+{txt}{search r(9):r(9);}
+
+{com}. reshape long AXLENRE ANTCHAM1 SPECRE1S IOPRE1IO CORNEAL1 STEACUT1 AMP1AMPL REFERR1 AXLENLE1 LENSTHIC LENSTHI1 SPECLE1S RNFLRE1R ENDLLE1R DILATRE1 DILATLE1 CLOSWRK1 WATCHTV1 COMPTUE1 COMPWED1 COMPFRI1 COMPSAT1 COMPSUN1 TWINNOT1 GENDER1G BIRTHOR1 WEARSPE1 CONSENT1 FIRSTSA1 TEACHFR1 PARENTO1 FRATERO1 VISACDR1 VISACDL1 VISACNR1 VISACNL1 IOPLE1IO REFSPHR1 REFSPHL1 REFCYLR1 REFCYLL1 REFCYLA1 PHY1FACI KERATON1 KERATOD1 KERAREA1 KERALEA1 PLAYGAM1 PLAYGAT1 PLAYGAW1 PLAYGAF1 PLAYGAS1 OUTDORM1 OUTDORT1 OUTDORW1 OUTDORF1 OUTDORS1 COMPTHR1 RECYLAX1 iodfd1 iodmp1, i(studyno) j(model)
+{txt}(note: j = 1 2)
+(note: ANTCHAM11 not found)
+(note: SPECRE1S1 not found)
+(note: IOPRE1IO1 not found)
+(note: CORNEAL11 not found)
+(note: STEACUT11 not found)
+(note: AMP1AMPL1 not found)
+(note: REFERR11 not found)
+(note: AXLENLE11 not found)
+(note: LENSTHIC1 not found)
+(note: LENSTHI11 not found)
+(note: SPECLE1S1 not found)
+(note: RNFLRE1R1 not found)
+(note: ENDLLE1R1 not found)
+(note: DILATRE11 not found)
+(note: DILATLE11 not found)
+(note: CLOSWRK11 not found)
+(note: WATCHTV11 not found)
+(note: COMPTUE11 not found)
+(note: COMPWED11 not found)
+(note: COMPFRI11 not found)
+(note: COMPSAT11 not found)
+(note: COMPSUN11 not found)
+(note: TWINNOT11 not found)
+(note: GENDER1G1 not found)
+(note: BIRTHOR11 not found)
+(note: WEARSPE11 not found)
+(note: CONSENT11 not found)
+(note: FIRSTSA11 not found)
+(note: TEACHFR11 not found)
+(note: PARENTO11 not found)
+(note: FRATERO11 not found)
+(note: VISACDR11 not found)
+(note: VISACDL11 not found)
+(note: VISACNR11 not found)
+(note: VISACNL11 not found)
+(note: IOPLE1IO1 not found)
+(note: REFSPHR11 not found)
+(note: REFSPHL11 not found)
+(note: REFCYLR11 not found)
+(note: REFCYLL11 not found)
+(note: REFCYLA11 not found)
+(note: PHY1FACI1 not found)
+(note: KERATON11 not found)
+(note: KERATOD11 not found)
+(note: KERAREA11 not found)
+(note: KERALEA11 not found)
+(note: PLAYGAM11 not found)
+(note: PLAYGAT11 not found)
+(note: PLAYGAW11 not found)
+(note: PLAYGAF11 not found)
+(note: PLAYGAS11 not found)
+(note: OUTDORM11 not found)
+(note: OUTDORT11 not found)
+(note: OUTDORW11 not found)
+(note: OUTDORF11 not found)
+(note: OUTDORS11 not found)
+(note: COMPTHR11 not found)
+(note: RECYLAX11 not found)
+(note: iodfd11 not found)
+(note: iodmp11 not found)
+{err}variable {bf}ANTCHAM1{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. ed
+
+. reshape long studyno , i(studyno) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno , i(Zygo_PP ) j(model)
+{err}no xij variables found
+{p 4 4 2}
+You typed something like
+{bf:reshape wide a b, i(i) j(j)}.{break}
+{bf:reshape} looked for existing variables
+named {bf:a}{it:#} and {bf:b}{it:#} but
+could not find any.  Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno  AXLENRE , i(Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+{err}variable {bf:id} does not uniquely identify the observations
+{p 4 4 2}
+Your data are currently wide.
+You are performing a {bf:reshape long}.
+You specified {bf:i(Zygo_PP)} and {bf:j(model)}.
+In the current wide form, variable {bf:Zygo_PP}
+should uniquely identify the observations.
+Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+{p 4 4 2}
+Type {bf:reshape error} for a list of the
+problem observations.
+{p_end}
+{txt}{search r(9):r(9);}
+
+{com}. reshape long studyno  AXLENRE , i(studyno  ) j(model)
+{txt}(note: j = 1 2)
+(note: studyno1 not found)
+{err}variable {bf}studyno{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long studyno  AXLENRE , i(studyno) j(model)
+{txt}(note: j = 1 2)
+(note: studyno1 not found)
+{err}variable {bf}studyno{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long studyno  AXLENRE , i(studyno) j(model)
+{txt}(note: j = 1 2)
+(note: studyno1 not found)
+{err}variable {bf}studyno{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long studyno  AXLENRE , i(studyno1) j(model)
+{err}variable {bf}studyno1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long studyno  AXLENRE , i(studyno Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+(note: studyno1 not found)
+{err}variable {bf}studyno{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long A AXLENRE, i(studyno Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+(note: A1 not found)
+(note: A2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     241
+{txt}j variable (2 values)                     ->   {res}model
+{txt}xij variables:
+                                  {res}A1 A2   {txt}->   {res}A
+                      AXLENRE1 AXLENRE2   {txt}->   {res}AXLENRE
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. reshape long A AXLENRE, i(Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+{err}variable {bf:id} does not uniquely identify the observations
+{p 4 4 2}
+Your data are currently wide.
+You are performing a {bf:reshape long}.
+You specified {bf:i(Zygo_PP)} and {bf:j(model)}.
+In the current wide form, variable {bf:Zygo_PP}
+should uniquely identify the observations.
+Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+{p 4 4 2}
+Type {bf:reshape error} for a list of the
+problem observations.
+{p_end}
+{txt}{search r(9):r(9);}
+
+{com}. destring Zygo_PP , replace
+{txt}Zygo_PP contains nonnumeric characters; no {res}replace
+
+{com}. reshape long A AXLENRE, i(Zygo_PP ) j(model)
+{txt}(note: j = 1 2)
+{err}variable {bf:id} does not uniquely identify the observations
+{p 4 4 2}
+Your data are currently wide.
+You are performing a {bf:reshape long}.
+You specified {bf:i(Zygo_PP)} and {bf:j(model)}.
+In the current wide form, variable {bf:Zygo_PP}
+should uniquely identify the observations.
+Remember this picture:
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+{p 4 4 2}
+Type {bf:reshape error} for a list of the
+problem observations.
+{p_end}
+{txt}{search r(9):r(9);}
+
+{com}. reshape long A AXLENRE, i(studyno  ) j(model)
+{txt}(note: j = 1 2)
+(note: A1 not found)
+(note: A2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     241
+{txt}j variable (2 values)                     ->   {res}model
+{txt}xij variables:
+                                  {res}A1 A2   {txt}->   {res}A
+                      AXLENRE1 AXLENRE2   {txt}->   {res}AXLENRE
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. reshape long  AXLENRE, i(studyno  ) j(model)
+{txt}(note: j = 1 2)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     240
+{txt}j variable (2 values)                     ->   {res}model
+{txt}xij variables:
+                      {res}AXLENRE1 AXLENRE2   {txt}->   {res}AXLENRE
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. reshape long  AXLENRE ANTCHAM SPECRES , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: SPECRES1 not found)
+(note: SPECRES2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     240
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AXLENRE1 AXLENRE2   {txt}->   {res}AXLENRE
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      SPECRES1 SPECRES2   {txt}->   {res}SPECRES
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. reshape long  AXLENRE ANTCHAM SPECRES IOPRE1IO CORNEAL1 HT1HEIGH WT1WEIGH STEACUT1 AXLENLE1 LENSTHI1 SPECLE1S RNFLRE1R ENDLLE1R DILATRE1 DILATLE1 CLOSWRK1 WATCHTV1 COMPMON1 COMPTUE1 COMPWED1 COMPFRI1 COMPSAT1 COMPSUN1 TWINNOT1 GENDER1G BIRTHOR1 WEARSPE1 CONSENT1 FIRSTSA1 TEACHFR1 PARENTO1 FRATERO1 VISACDR1 VISACDL1 VISACNR1 VISACNL1 IOPLE1IO REFSPHR1 REFSPHL1 REFCYLR1 REFCYLL1 REFCYLA1 PHY1FACI KERATOD1 KERAREA1 KERALEA1 PLAYGAM1 PLAYGAT1 PLAYGAW1 PLAYGAF1 PLAYGAS1 OUTDORM1 OUTDORT1 OUTDORW1 OUTDORF1 OUTDORS1 COMPTHR1 RECYLAX1 iodfd1 iodmp1 , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: SPECRES1 not found)
+(note: IOPRE1IO1 not found)
+(note: CORNEAL11 not found)
+(note: HT1HEIGH1 not found)
+(note: WT1WEIGH1 not found)
+(note: STEACUT11 not found)
+(note: AXLENLE11 not found)
+(note: LENSTHI11 not found)
+(note: SPECLE1S1 not found)
+(note: RNFLRE1R1 not found)
+(note: ENDLLE1R1 not found)
+(note: DILATRE11 not found)
+(note: DILATLE11 not found)
+(note: CLOSWRK11 not found)
+(note: WATCHTV11 not found)
+(note: COMPMON11 not found)
+(note: COMPTUE11 not found)
+(note: COMPWED11 not found)
+(note: COMPFRI11 not found)
+(note: COMPSAT11 not found)
+(note: COMPSUN11 not found)
+(note: TWINNOT11 not found)
+(note: GENDER1G1 not found)
+(note: BIRTHOR11 not found)
+(note: WEARSPE11 not found)
+(note: CONSENT11 not found)
+(note: FIRSTSA11 not found)
+(note: TEACHFR11 not found)
+(note: PARENTO11 not found)
+(note: FRATERO11 not found)
+(note: VISACDR11 not found)
+(note: VISACDL11 not found)
+(note: VISACNR11 not found)
+(note: VISACNL11 not found)
+(note: IOPLE1IO1 not found)
+(note: REFSPHR11 not found)
+(note: REFSPHL11 not found)
+(note: REFCYLR11 not found)
+(note: REFCYLL11 not found)
+(note: REFCYLA11 not found)
+(note: PHY1FACI1 not found)
+(note: KERATOD11 not found)
+(note: KERAREA11 not found)
+(note: KERALEA11 not found)
+(note: PLAYGAM11 not found)
+(note: PLAYGAT11 not found)
+(note: PLAYGAW11 not found)
+(note: PLAYGAF11 not found)
+(note: PLAYGAS11 not found)
+(note: OUTDORM11 not found)
+(note: OUTDORT11 not found)
+(note: OUTDORW11 not found)
+(note: OUTDORF11 not found)
+(note: OUTDORS11 not found)
+(note: COMPTHR11 not found)
+(note: RECYLAX11 not found)
+(note: iodfd11 not found)
+(note: iodmp11 not found)
+{err}variable {bf}IOPRE1IO{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long  AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH STEACUT AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR WEARSPE CONSENT FIRSTSA TEACHFR PARENTO FRATERO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORW OUTDORF OUTDORS COMPTHR RECYLAX iodfd iodmp , i(studyno  ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+(note: SPECRES1 not found)
+(note: IOPREIO1 not found)
+(note: HTHEIGH1 not found)
+(note: WTWEIGH1 not found)
+(note: SPECLES1 not found)
+(note: RNFLRER1 not found)
+(note: ENDLLER1 not found)
+(note: GENDERG1 not found)
+(note: IOPLEIO1 not found)
+(note: PHYFACI1 not found)
+(note: SPECRES2 not found)
+(note: IOPREIO2 not found)
+(note: HTHEIGH2 not found)
+(note: WTWEIGH2 not found)
+(note: SPECLES2 not found)
+(note: RNFLRER2 not found)
+(note: ENDLLER2 not found)
+(note: TWINNOT2 not found)
+(note: GENDERG2 not found)
+(note: BIRTHOR2 not found)
+(note: WEARSPE2 not found)
+(note: CONSENT2 not found)
+(note: FIRSTSA2 not found)
+(note: TEACHFR2 not found)
+(note: PARENTO2 not found)
+(note: FRATERO2 not found)
+(note: VISACDR2 not found)
+(note: VISACDL2 not found)
+(note: VISACNR2 not found)
+(note: VISACNL2 not found)
+(note: IOPLEIO2 not found)
+(note: REFCYLA2 not found)
+(note: PHYFACI2 not found)
+(note: KERAREA2 not found)
+(note: KERALEA2 not found)
+(note: PLAYGAM2 not found)
+(note: PLAYGAW2 not found)
+(note: PLAYGAF2 not found)
+(note: OUTDORM2 not found)
+(note: OUTDORW2 not found)
+(note: OUTDORF2 not found)
+(note: COMPTHR2 not found)
+(note: RECYLAX2 not found)
+(note: AXLENRE3 not found)
+(note: ANTCHAM3 not found)
+(note: SPECRES3 not found)
+(note: IOPREIO3 not found)
+(note: CORNEAL3 not found)
+(note: HTHEIGH3 not found)
+(note: WTWEIGH3 not found)
+(note: STEACUT3 not found)
+(note: AXLENLE3 not found)
+(note: SPECLES3 not found)
+(note: RNFLRER3 not found)
+(note: ENDLLER3 not found)
+(note: DILATRE3 not found)
+(note: DILATLE3 not found)
+(note: COMPMON3 not found)
+(note: COMPTUE3 not found)
+(note: COMPWED3 not found)
+(note: COMPFRI3 not found)
+(note: COMPSAT3 not found)
+(note: COMPSUN3 not found)
+(note: TWINNOT3 not found)
+(note: GENDERG3 not found)
+(note: BIRTHOR3 not found)
+(note: WEARSPE3 not found)
+(note: CONSENT3 not found)
+(note: FIRSTSA3 not found)
+(note: TEACHFR3 not found)
+(note: PARENTO3 not found)
+(note: FRATERO3 not found)
+(note: VISACDR3 not found)
+(note: VISACDL3 not found)
+(note: VISACNR3 not found)
+(note: VISACNL3 not found)
+(note: IOPLEIO3 not found)
+(note: REFCYLA3 not found)
+(note: PHYFACI3 not found)
+(note: KERATOD3 not found)
+(note: KERAREA3 not found)
+(note: KERALEA3 not found)
+(note: PLAYGAM3 not found)
+(note: PLAYGAT3 not found)
+(note: PLAYGAW3 not found)
+(note: PLAYGAF3 not found)
+(note: PLAYGAS3 not found)
+(note: OUTDORM3 not found)
+(note: OUTDORT3 not found)
+(note: OUTDORW3 not found)
+(note: OUTDORF3 not found)
+(note: OUTDORS3 not found)
+(note: COMPTHR3 not found)
+(note: RECYLAX3 not found)
+(note: iodfd3 not found)
+(note: iodmp3 not found)
+(note: AXLENRE4 not found)
+(note: ANTCHAM4 not found)
+(note: SPECRES4 not found)
+(note: IOPREIO4 not found)
+(note: CORNEAL4 not found)
+(note: HTHEIGH4 not found)
+(note: WTWEIGH4 not found)
+(note: STEACUT4 not found)
+(note: AXLENLE4 not found)
+(note: LENSTHI4 not found)
+(note: SPECLES4 not found)
+(note: RNFLRER4 not found)
+(note: ENDLLER4 not found)
+(note: DILATRE4 not found)
+(note: DILATLE4 not found)
+(note: COMPMON4 not found)
+(note: COMPTUE4 not found)
+(note: COMPWED4 not found)
+(note: COMPFRI4 not found)
+(note: COMPSAT4 not found)
+(note: COMPSUN4 not found)
+(note: TWINNOT4 not found)
+(note: GENDERG4 not found)
+(note: BIRTHOR4 not found)
+(note: WEARSPE4 not found)
+(note: CONSENT4 not found)
+(note: FIRSTSA4 not found)
+(note: TEACHFR4 not found)
+(note: PARENTO4 not found)
+(note: FRATERO4 not found)
+(note: VISACDR4 not found)
+(note: VISACDL4 not found)
+(note: VISACNR4 not found)
+(note: VISACNL4 not found)
+(note: IOPLEIO4 not found)
+(note: REFSPHR4 not found)
+(note: REFSPHL4 not found)
+(note: REFCYLR4 not found)
+(note: REFCYLL4 not found)
+(note: REFCYLA4 not found)
+(note: PHYFACI4 not found)
+(note: KERATOD4 not found)
+(note: KERAREA4 not found)
+(note: KERALEA4 not found)
+(note: PLAYGAM4 not found)
+(note: PLAYGAT4 not found)
+(note: PLAYGAW4 not found)
+(note: PLAYGAF4 not found)
+(note: PLAYGAS4 not found)
+(note: OUTDORM4 not found)
+(note: OUTDORT4 not found)
+(note: OUTDORW4 not found)
+(note: OUTDORF4 not found)
+(note: OUTDORS4 not found)
+(note: COMPTHR4 not found)
+(note: RECYLAX4 not found)
+(note: iodfd4 not found)
+(note: iodmp4 not found)
+(note: AXLENRE5 not found)
+(note: ANTCHAM5 not found)
+(note: SPECRES5 not found)
+(note: IOPREIO5 not found)
+(note: CORNEAL5 not found)
+(note: HTHEIGH5 not found)
+(note: WTWEIGH5 not found)
+(note: STEACUT5 not found)
+(note: AXLENLE5 not found)
+(note: LENSTHI5 not found)
+(note: SPECLES5 not found)
+(note: RNFLRER5 not found)
+(note: ENDLLER5 not found)
+(note: DILATRE5 not found)
+(note: DILATLE5 not found)
+(note: COMPMON5 not found)
+(note: COMPTUE5 not found)
+(note: COMPWED5 not found)
+(note: COMPFRI5 not found)
+(note: COMPSAT5 not found)
+(note: COMPSUN5 not found)
+(note: TWINNOT5 not found)
+(note: GENDERG5 not found)
+(note: BIRTHOR5 not found)
+(note: WEARSPE5 not found)
+(note: CONSENT5 not found)
+(note: FIRSTSA5 not found)
+(note: TEACHFR5 not found)
+(note: PARENTO5 not found)
+(note: FRATERO5 not found)
+(note: VISACDR5 not found)
+(note: VISACDL5 not found)
+(note: VISACNR5 not found)
+(note: VISACNL5 not found)
+(note: IOPLEIO5 not found)
+(note: REFSPHR5 not found)
+(note: REFSPHL5 not found)
+(note: REFCYLR5 not found)
+(note: REFCYLL5 not found)
+(note: REFCYLA5 not found)
+(note: PHYFACI5 not found)
+(note: KERATOD5 not found)
+(note: KERAREA5 not found)
+(note: KERALEA5 not found)
+(note: PLAYGAM5 not found)
+(note: PLAYGAT5 not found)
+(note: PLAYGAW5 not found)
+(note: PLAYGAF5 not found)
+(note: PLAYGAS5 not found)
+(note: OUTDORM5 not found)
+(note: OUTDORT5 not found)
+(note: OUTDORW5 not found)
+(note: OUTDORF5 not found)
+(note: OUTDORS5 not found)
+(note: COMPTHR5 not found)
+(note: RECYLAX5 not found)
+(note: iodfd5 not found)
+(note: iodmp5 not found)
+(note: AXLENRE6 not found)
+(note: ANTCHAM6 not found)
+(note: SPECRES6 not found)
+(note: IOPREIO6 not found)
+(note: CORNEAL6 not found)
+(note: HTHEIGH6 not found)
+(note: WTWEIGH6 not found)
+(note: STEACUT6 not found)
+(note: AXLENLE6 not found)
+(note: LENSTHI6 not found)
+(note: SPECLES6 not found)
+(note: RNFLRER6 not found)
+(note: ENDLLER6 not found)
+(note: DILATRE6 not found)
+(note: DILATLE6 not found)
+(note: COMPMON6 not found)
+(note: COMPTUE6 not found)
+(note: COMPWED6 not found)
+(note: COMPFRI6 not found)
+(note: COMPSAT6 not found)
+(note: COMPSUN6 not found)
+(note: TWINNOT6 not found)
+(note: GENDERG6 not found)
+(note: BIRTHOR6 not found)
+(note: WEARSPE6 not found)
+(note: CONSENT6 not found)
+(note: FIRSTSA6 not found)
+(note: TEACHFR6 not found)
+(note: PARENTO6 not found)
+(note: FRATERO6 not found)
+(note: VISACDR6 not found)
+(note: VISACDL6 not found)
+(note: VISACNR6 not found)
+(note: VISACNL6 not found)
+(note: IOPLEIO6 not found)
+(note: REFSPHR6 not found)
+(note: REFSPHL6 not found)
+(note: REFCYLR6 not found)
+(note: REFCYLL6 not found)
+(note: REFCYLA6 not found)
+(note: PHYFACI6 not found)
+(note: KERATOD6 not found)
+(note: KERAREA6 not found)
+(note: KERALEA6 not found)
+(note: PLAYGAM6 not found)
+(note: PLAYGAT6 not found)
+(note: PLAYGAW6 not found)
+(note: PLAYGAF6 not found)
+(note: PLAYGAS6 not found)
+(note: OUTDORM6 not found)
+(note: OUTDORT6 not found)
+(note: OUTDORW6 not found)
+(note: OUTDORF6 not found)
+(note: OUTDORS6 not found)
+(note: COMPTHR6 not found)
+(note: RECYLAX6 not found)
+(note: iodfd6 not found)
+(note: iodmp6 not found)
+(note: AXLENRE7 not found)
+(note: ANTCHAM7 not found)
+(note: SPECRES7 not found)
+(note: IOPREIO7 not found)
+(note: CORNEAL7 not found)
+(note: HTHEIGH7 not found)
+(note: WTWEIGH7 not found)
+(note: STEACUT7 not found)
+(note: AXLENLE7 not found)
+(note: LENSTHI7 not found)
+(note: SPECLES7 not found)
+(note: RNFLRER7 not found)
+(note: ENDLLER7 not found)
+(note: DILATRE7 not found)
+(note: DILATLE7 not found)
+(note: COMPMON7 not found)
+(note: COMPTUE7 not found)
+(note: COMPWED7 not found)
+(note: COMPFRI7 not found)
+(note: COMPSAT7 not found)
+(note: COMPSUN7 not found)
+(note: TWINNOT7 not found)
+(note: GENDERG7 not found)
+(note: BIRTHOR7 not found)
+(note: WEARSPE7 not found)
+(note: CONSENT7 not found)
+(note: FIRSTSA7 not found)
+(note: TEACHFR7 not found)
+(note: PARENTO7 not found)
+(note: FRATERO7 not found)
+(note: VISACDR7 not found)
+(note: VISACDL7 not found)
+(note: VISACNR7 not found)
+(note: VISACNL7 not found)
+(note: IOPLEIO7 not found)
+(note: REFSPHR7 not found)
+(note: REFSPHL7 not found)
+(note: REFCYLR7 not found)
+(note: REFCYLL7 not found)
+(note: REFCYLA7 not found)
+(note: PHYFACI7 not found)
+(note: KERATOD7 not found)
+(note: KERAREA7 not found)
+(note: KERALEA7 not found)
+(note: PLAYGAM7 not found)
+(note: PLAYGAT7 not found)
+(note: PLAYGAW7 not found)
+(note: PLAYGAF7 not found)
+(note: PLAYGAS7 not found)
+(note: OUTDORM7 not found)
+(note: OUTDORT7 not found)
+(note: OUTDORW7 not found)
+(note: OUTDORF7 not found)
+(note: OUTDORS7 not found)
+(note: COMPTHR7 not found)
+(note: RECYLAX7 not found)
+(note: iodfd7 not found)
+(note: iodmp7 not found)
+(note: AXLENRE8 not found)
+(note: ANTCHAM8 not found)
+(note: SPECRES8 not found)
+(note: IOPREIO8 not found)
+(note: CORNEAL8 not found)
+(note: HTHEIGH8 not found)
+(note: WTWEIGH8 not found)
+(note: STEACUT8 not found)
+(note: AXLENLE8 not found)
+(note: LENSTHI8 not found)
+(note: SPECLES8 not found)
+(note: RNFLRER8 not found)
+(note: ENDLLER8 not found)
+(note: DILATRE8 not found)
+(note: DILATLE8 not found)
+(note: COMPMON8 not found)
+(note: COMPTUE8 not found)
+(note: COMPWED8 not found)
+(note: COMPFRI8 not found)
+(note: COMPSAT8 not found)
+(note: COMPSUN8 not found)
+(note: TWINNOT8 not found)
+(note: GENDERG8 not found)
+(note: BIRTHOR8 not found)
+(note: WEARSPE8 not found)
+(note: CONSENT8 not found)
+(note: FIRSTSA8 not found)
+(note: TEACHFR8 not found)
+(note: PARENTO8 not found)
+(note: FRATERO8 not found)
+(note: VISACDR8 not found)
+(note: VISACDL8 not found)
+(note: VISACNR8 not found)
+(note: VISACNL8 not found)
+(note: IOPLEIO8 not found)
+(note: REFSPHR8 not found)
+(note: REFSPHL8 not found)
+(note: REFCYLR8 not found)
+(note: REFCYLL8 not found)
+(note: REFCYLA8 not found)
+(note: PHYFACI8 not found)
+(note: KERATOD8 not found)
+(note: KERAREA8 not found)
+(note: KERALEA8 not found)
+(note: PLAYGAM8 not found)
+(note: PLAYGAT8 not found)
+(note: PLAYGAW8 not found)
+(note: PLAYGAF8 not found)
+(note: PLAYGAS8 not found)
+(note: OUTDORM8 not found)
+(note: OUTDORT8 not found)
+(note: OUTDORW8 not found)
+(note: OUTDORF8 not found)
+(note: OUTDORS8 not found)
+(note: COMPTHR8 not found)
+(note: RECYLAX8 not found)
+(note: iodfd8 not found)
+(note: iodmp8 not found)
+(note: AXLENRE9 not found)
+(note: ANTCHAM9 not found)
+(note: SPECRES9 not found)
+(note: IOPREIO9 not found)
+(note: CORNEAL9 not found)
+(note: HTHEIGH9 not found)
+(note: WTWEIGH9 not found)
+(note: STEACUT9 not found)
+(note: AXLENLE9 not found)
+(note: LENSTHI9 not found)
+(note: SPECLES9 not found)
+(note: RNFLRER9 not found)
+(note: ENDLLER9 not found)
+(note: DILATRE9 not found)
+(note: DILATLE9 not found)
+(note: COMPMON9 not found)
+(note: COMPTUE9 not found)
+(note: COMPWED9 not found)
+(note: COMPFRI9 not found)
+(note: COMPSAT9 not found)
+(note: COMPSUN9 not found)
+(note: TWINNOT9 not found)
+(note: GENDERG9 not found)
+(note: BIRTHOR9 not found)
+(note: WEARSPE9 not found)
+(note: CONSENT9 not found)
+(note: FIRSTSA9 not found)
+(note: TEACHFR9 not found)
+(note: PARENTO9 not found)
+(note: FRATERO9 not found)
+(note: VISACDR9 not found)
+(note: VISACDL9 not found)
+(note: VISACNR9 not found)
+(note: VISACNL9 not found)
+(note: IOPLEIO9 not found)
+(note: REFSPHR9 not found)
+(note: REFSPHL9 not found)
+(note: REFCYLR9 not found)
+(note: REFCYLL9 not found)
+(note: REFCYLA9 not found)
+(note: PHYFACI9 not found)
+(note: KERATOD9 not found)
+(note: KERAREA9 not found)
+(note: KERALEA9 not found)
+(note: PLAYGAM9 not found)
+(note: PLAYGAT9 not found)
+(note: PLAYGAW9 not found)
+(note: PLAYGAF9 not found)
+(note: PLAYGAS9 not found)
+(note: OUTDORM9 not found)
+(note: OUTDORT9 not found)
+(note: OUTDORW9 not found)
+(note: OUTDORF9 not found)
+(note: OUTDORS9 not found)
+(note: COMPTHR9 not found)
+(note: RECYLAX9 not found)
+(note: iodfd9 not found)
+(note: iodmp9 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}     333
+{txt}Number of variables            {res}     240   {txt}->{res}     205
+{txt}j variable (9 values)                     ->   {res}twins
+{txt}xij variables:
+         {res}AXLENRE1 AXLENRE2 ... AXLENRE9   {txt}->   {res}AXLENRE
+         ANTCHAM1 ANTCHAM2 ... ANTCHAM9   {txt}->   {res}ANTCHAM
+         SPECRES1 SPECRES2 ... SPECRES9   {txt}->   {res}SPECRES
+         IOPREIO1 IOPREIO2 ... IOPREIO9   {txt}->   {res}IOPREIO
+         CORNEAL1 CORNEAL2 ... CORNEAL9   {txt}->   {res}CORNEAL
+         HTHEIGH1 HTHEIGH2 ... HTHEIGH9   {txt}->   {res}HTHEIGH
+         WTWEIGH1 WTWEIGH2 ... WTWEIGH9   {txt}->   {res}WTWEIGH
+         STEACUT1 STEACUT2 ... STEACUT9   {txt}->   {res}STEACUT
+         AXLENLE1 AXLENLE2 ... AXLENLE9   {txt}->   {res}AXLENLE
+         LENSTHI1 LENSTHI2 ... LENSTHI9   {txt}->   {res}LENSTHI
+         SPECLES1 SPECLES2 ... SPECLES9   {txt}->   {res}SPECLES
+         RNFLRER1 RNFLRER2 ... RNFLRER9   {txt}->   {res}RNFLRER
+         ENDLLER1 ENDLLER2 ... ENDLLER9   {txt}->   {res}ENDLLER
+         DILATRE1 DILATRE2 ... DILATRE9   {txt}->   {res}DILATRE
+         DILATLE1 DILATLE2 ... DILATLE9   {txt}->   {res}DILATLE
+         CLOSWRK1 CLOSWRK2 ... CLOSWRK9   {txt}->   {res}CLOSWRK
+         WATCHTV1 WATCHTV2 ... WATCHTV9   {txt}->   {res}WATCHTV
+         COMPMON1 COMPMON2 ... COMPMON9   {txt}->   {res}COMPMON
+         COMPTUE1 COMPTUE2 ... COMPTUE9   {txt}->   {res}COMPTUE
+         COMPWED1 COMPWED2 ... COMPWED9   {txt}->   {res}COMPWED
+         COMPFRI1 COMPFRI2 ... COMPFRI9   {txt}->   {res}COMPFRI
+         COMPSAT1 COMPSAT2 ... COMPSAT9   {txt}->   {res}COMPSAT
+         COMPSUN1 COMPSUN2 ... COMPSUN9   {txt}->   {res}COMPSUN
+         TWINNOT1 TWINNOT2 ... TWINNOT9   {txt}->   {res}TWINNOT
+         GENDERG1 GENDERG2 ... GENDERG9   {txt}->   {res}GENDERG
+         BIRTHOR1 BIRTHOR2 ... BIRTHOR9   {txt}->   {res}BIRTHOR
+         WEARSPE1 WEARSPE2 ... WEARSPE9   {txt}->   {res}WEARSPE
+         CONSENT1 CONSENT2 ... CONSENT9   {txt}->   {res}CONSENT
+         FIRSTSA1 FIRSTSA2 ... FIRSTSA9   {txt}->   {res}FIRSTSA
+         TEACHFR1 TEACHFR2 ... TEACHFR9   {txt}->   {res}TEACHFR
+         PARENTO1 PARENTO2 ... PARENTO9   {txt}->   {res}PARENTO
+         FRATERO1 FRATERO2 ... FRATERO9   {txt}->   {res}FRATERO
+         VISACDR1 VISACDR2 ... VISACDR9   {txt}->   {res}VISACDR
+         VISACDL1 VISACDL2 ... VISACDL9   {txt}->   {res}VISACDL
+         VISACNR1 VISACNR2 ... VISACNR9   {txt}->   {res}VISACNR
+         VISACNL1 VISACNL2 ... VISACNL9   {txt}->   {res}VISACNL
+         IOPLEIO1 IOPLEIO2 ... IOPLEIO9   {txt}->   {res}IOPLEIO
+         REFSPHR1 REFSPHR2 ... REFSPHR9   {txt}->   {res}REFSPHR
+         REFSPHL1 REFSPHL2 ... REFSPHL9   {txt}->   {res}REFSPHL
+         REFCYLR1 REFCYLR2 ... REFCYLR9   {txt}->   {res}REFCYLR
+         REFCYLL1 REFCYLL2 ... REFCYLL9   {txt}->   {res}REFCYLL
+         REFCYLA1 REFCYLA2 ... REFCYLA9   {txt}->   {res}REFCYLA
+         PHYFACI1 PHYFACI2 ... PHYFACI9   {txt}->   {res}PHYFACI
+         KERATOD1 KERATOD2 ... KERATOD9   {txt}->   {res}KERATOD
+         KERAREA1 KERAREA2 ... KERAREA9   {txt}->   {res}KERAREA
+         KERALEA1 KERALEA2 ... KERALEA9   {txt}->   {res}KERALEA
+         PLAYGAM1 PLAYGAM2 ... PLAYGAM9   {txt}->   {res}PLAYGAM
+         PLAYGAT1 PLAYGAT2 ... PLAYGAT9   {txt}->   {res}PLAYGAT
+         PLAYGAW1 PLAYGAW2 ... PLAYGAW9   {txt}->   {res}PLAYGAW
+         PLAYGAF1 PLAYGAF2 ... PLAYGAF9   {txt}->   {res}PLAYGAF
+         PLAYGAS1 PLAYGAS2 ... PLAYGAS9   {txt}->   {res}PLAYGAS
+         OUTDORM1 OUTDORM2 ... OUTDORM9   {txt}->   {res}OUTDORM
+         OUTDORT1 OUTDORT2 ... OUTDORT9   {txt}->   {res}OUTDORT
+         OUTDORW1 OUTDORW2 ... OUTDORW9   {txt}->   {res}OUTDORW
+         OUTDORF1 OUTDORF2 ... OUTDORF9   {txt}->   {res}OUTDORF
+         OUTDORS1 OUTDORS2 ... OUTDORS9   {txt}->   {res}OUTDORS
+         COMPTHR1 COMPTHR2 ... COMPTHR9   {txt}->   {res}COMPTHR
+         RECYLAX1 RECYLAX2 ... RECYLAX9   {txt}->   {res}RECYLAX
+               iodfd1 iodfd2 ... iodfd9   {txt}->   {res}iodfd
+               iodmp1 iodmp2 ... iodmp9   {txt}->   {res}iodmp
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. ed
+
+. ed L*
+
+. ed
+
+. ed E*
+
+. ed
+
+. ed COR*
+
+. reshape long AMPAMPL AXLENLE CORNEAL ANTCHAM LENSTHIC  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: AMPAMPL1 not found)
+(note: LENSTHIC1 not found)
+{err}variable {bf}LENSTHIC{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. ed K*
+
+. reshape long AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: AMPAMPL1 not found)
+(note: AMPAMPL2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     238
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+{txt}{hline 77}
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. ed
+
+. ed R*
+
+. ed REFS*
+
+. ed R*
+
+. ed S*
+
+. ed R*
+
+. ed REFS*
+
+. reshape long AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: AMPAMPL1 not found)
+(note: REFSPHE1 not found)
+(note: IOPLEIO1 not found)
+(note: AMPAMPL2 not found)
+(note: REFSPHE2 not found)
+(note: IOPLEIO2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     240
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      REFSPHE1 REFSPHE2   {txt}->   {res}REFSPHE
+                      IOPLEIO1 IOPLEIO2   {txt}->   {res}IOPLEIO
+{txt}{hline 77}
+
+{com}. ed
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\reshape_twins_74.dta"
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\reshape_twins_74.dta saved
+
+{com}. ed
+
+. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO
+
+. ed
+
+. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO
+{err}variable {bf}AMPAMPL{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: AMPAMPL1 not found)
+(note: REFSPHE1 not found)
+(note: IOPLEIO1 not found)
+(note: AMPAMPL2 not found)
+(note: REFSPHE2 not found)
+(note: IOPLEIO2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     240
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      REFSPHE1 REFSPHE2   {txt}->   {res}REFSPHE
+                      IOPLEIO1 IOPLEIO2   {txt}->   {res}IOPLEIO
+{txt}{hline 77}
+
+{com}. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO\
+{err}\ invalid name
+{txt}{search r(198):r(198);}
+
+{com}. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEIO
+
+. ed
+
+. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. ed AMP1AMPL AMP2AMPL
+
+. ren AMP1AMPL AMPAMPL1
+{res}
+{com}. ren AMP2AMPL AMPAMPL2
+{res}
+{com}. ed REFSPHLE REFSPHRE
+
+. ed REFS*
+
+. ren REFSPHLE REFSPHLE1
+{res}
+{com}. ren REFSPHLE1 REFSPHLE
+{res}
+{com}. ed IOP
+{bf}{err}IOP{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. ed IOP*
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON   , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     236
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+{txt}{hline 77}
+
+{com}. ed
+
+. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON REFSPHE IOPLEI
+{err}variable {bf}REFSPHE{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. ed AMPAMPL AXLENLE CORNEAL ANTCHAM KERATON
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta"
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta saved
+
+{com}. ed
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta saved
+
+{com}. ed AMPAMPL
+
+. tab AMPAMPL
+
+    {txt}AMPAMPL {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          7 {c |}{res}          1        1.43        1.43
+{txt}          8 {c |}{res}         39       55.71       57.14
+{txt}          9 {c |}{res}         15       21.43       78.57
+{txt}         10 {c |}{res}         12       17.14       95.71
+{txt}         11 {c |}{res}          2        2.86       98.57
+{txt}         12 {c |}{res}          1        1.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         70      100.00
+
+{com}. tab AMPAMPL   Zygo_PP,col  chi2 exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 6:{col 11}enumerations = 1
+{text}stage 5:{col 11}enumerations = 2
+{text}stage 4:{col 11}enumerations = 3
+{text}stage 3:{col 11}enumerations = 3
+{text}stage 2:{col 11}enumerations = 9
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+   AMPAMPL {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         7 {c |}{res}         0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00       2.78 {txt}{c |}{res}      1.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         8 {c |}{res}        19         20 {txt}{c |}{res}        39 
+           {txt}{c |}{res}     55.88      55.56 {txt}{c |}{res}     55.71 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         9 {c |}{res}         8          7 {txt}{c |}{res}        15 
+           {txt}{c |}{res}     23.53      19.44 {txt}{c |}{res}     21.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        10 {c |}{res}         6          6 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     17.65      16.67 {txt}{c |}{res}     17.14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        11 {c |}{res}         0          2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      0.00       5.56 {txt}{c |}{res}      2.86 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        12 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      2.94       0.00 {txt}{c |}{res}      1.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        34         36 {txt}{c |}{res}        70 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}5{txt}) = {res}  4.0385  {txt} Pr = {res}0.544
+{txt}           Fisher's exact =                 {res}0.755
+
+{com}. 
+. 
+. tab AMPAMPL   Zygo_PP,row  chi2 exact
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 6:{col 11}enumerations = 1
+{text}stage 5:{col 11}enumerations = 2
+{text}stage 4:{col 11}enumerations = 3
+{text}stage 3:{col 11}enumerations = 3
+{text}stage 2:{col 11}enumerations = 9
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+   AMPAMPL {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         7 {c |}{res}         0          1 {txt}{c |}{res}         1 
+           {txt}{c |}{res}      0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         8 {c |}{res}        19         20 {txt}{c |}{res}        39 
+           {txt}{c |}{res}     48.72      51.28 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         9 {c |}{res}         8          7 {txt}{c |}{res}        15 
+           {txt}{c |}{res}     53.33      46.67 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        10 {c |}{res}         6          6 {txt}{c |}{res}        12 
+           {txt}{c |}{res}     50.00      50.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        11 {c |}{res}         0          2 {txt}{c |}{res}         2 
+           {txt}{c |}{res}      0.00     100.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+        12 {c |}{res}         1          0 {txt}{c |}{res}         1 
+           {txt}{c |}{res}    100.00       0.00 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        34         36 {txt}{c |}{res}        70 
+           {txt}{c |}{res}     48.57      51.43 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}5{txt}) = {res}  4.0385  {txt} Pr = {res}0.544
+{txt}           Fisher's exact =                 {res}0.755
+
+{com}. ttest AMPAMPL , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     34{col 22} 8.705882{col 34} .1663781{col 46} .9701425{col 58} 8.367384{col 70} 9.044381
+      {txt}MZ {c |}{res}{col 12}     36{col 22} 8.666667{col 34} .1642685{col 46} .9856108{col 58} 8.333184{col 70} 9.000149
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     70{col 22} 8.685714{col 34} .1160832{col 46} .9712215{col 58} 8.454135{col 70} 8.917294
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .0392157{col 34} .2339144{col 58}-.4275532{col 70} .5059846
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.1676
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      68
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.5663         {txt}Pr(|T| > |t|) = {res}0.8674          {txt}Pr(T > t) = {res}0.4337
+
+{com}. tab LENSTHIC
+
+   {txt}LENSTHIC {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       3.21 {c |}{res}          4        5.41        5.41
+{txt}       3.22 {c |}{res}          2        2.70        8.11
+{txt}       3.27 {c |}{res}          4        5.41       13.51
+{txt}        3.3 {c |}{res}          2        2.70       16.22
+{txt}       3.38 {c |}{res}          2        2.70       18.92
+{txt}       3.41 {c |}{res}          4        5.41       24.32
+{txt}       3.42 {c |}{res}          2        2.70       27.03
+{txt}        3.5 {c |}{res}          2        2.70       29.73
+{txt}       3.51 {c |}{res}          2        2.70       32.43
+{txt}       3.53 {c |}{res}          4        5.41       37.84
+{txt}       3.58 {c |}{res}          2        2.70       40.54
+{txt}        3.6 {c |}{res}          2        2.70       43.24
+{txt}       3.63 {c |}{res}          4        5.41       48.65
+{txt}       3.64 {c |}{res}          2        2.70       51.35
+{txt}       3.66 {c |}{res}          6        8.11       59.46
+{txt}       3.69 {c |}{res}          2        2.70       62.16
+{txt}       3.72 {c |}{res}          2        2.70       64.86
+{txt}       3.76 {c |}{res}          2        2.70       67.57
+{txt}       3.78 {c |}{res}          2        2.70       70.27
+{txt}       3.84 {c |}{res}          4        5.41       75.68
+{txt}       3.85 {c |}{res}          4        5.41       81.08
+{txt}       3.86 {c |}{res}          2        2.70       83.78
+{txt}       3.89 {c |}{res}          2        2.70       86.49
+{txt}       3.91 {c |}{res}          2        2.70       89.19
+{txt}       3.92 {c |}{res}          2        2.70       91.89
+{txt}       3.95 {c |}{res}          2        2.70       94.59
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ttest LENSTHIC  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 3.735556{col 34}  .061034{col 46}  .366204{col 58}  3.61165{col 70} 3.859461
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 3.583158{col 34} .0403542{col 46} .2487602{col 58} 3.501392{col 70} 3.664923
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 3.657297{col 34} .0370433{col 46} .3186586{col 58}  3.58347{col 70} 3.731124
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .1523977{col 34} .0724331{col 58} .0080049{col 70} .2967905
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  2.1040
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9806         {txt}Pr(|T| > |t|) = {res}0.0389          {txt}Pr(T > t) = {res}0.0194
+
+{com}. ttest AXLENLE , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 23.16722{col 34}  .164691{col 46} .9881458{col 58} 22.83288{col 70} 23.50156
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.49658{col 34} .3217834{col 46} 1.983606{col 58} 22.84458{col 70} 24.14857
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 23.33635{col 34} .1834327{col 46} 1.577948{col 58} 22.97077{col 70} 23.70193
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3293567{col 34} .3674952{col 58}-1.061945{col 70} .4032315
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.8962
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1866         {txt}Pr(|T| > |t|) = {res}0.3731          {txt}Pr(T > t) = {res}0.8134
+
+{com}. tab CORNEAL
+
+    {txt}CORNEAL {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        457 {c |}{res}          1        1.35        1.35
+{txt}        458 {c |}{res}          1        1.35        2.70
+{txt}        472 {c |}{res}          1        1.35        4.05
+{txt}        483 {c |}{res}          1        1.35        5.41
+{txt}        490 {c |}{res}          2        2.70        8.11
+{txt}        495 {c |}{res}          2        2.70       10.81
+{txt}        496 {c |}{res}          3        4.05       14.86
+{txt}        498 {c |}{res}          1        1.35       16.22
+{txt}        500 {c |}{res}          1        1.35       17.57
+{txt}        504 {c |}{res}          1        1.35       18.92
+{txt}        505 {c |}{res}          2        2.70       21.62
+{txt}        510 {c |}{res}          1        1.35       22.97
+{txt}        512 {c |}{res}          2        2.70       25.68
+{txt}        513 {c |}{res}          1        1.35       27.03
+{txt}        514 {c |}{res}          1        1.35       28.38
+{txt}        518 {c |}{res}          1        1.35       29.73
+{txt}        519 {c |}{res}          1        1.35       31.08
+{txt}        521 {c |}{res}          2        2.70       33.78
+{txt}        524 {c |}{res}          2        2.70       36.49
+{txt}        527 {c |}{res}          3        4.05       40.54
+{txt}        533 {c |}{res}          2        2.70       43.24
+{txt}        534 {c |}{res}          2        2.70       45.95
+{txt}        535 {c |}{res}          1        1.35       47.30
+{txt}        536 {c |}{res}          2        2.70       50.00
+{txt}        537 {c |}{res}          1        1.35       51.35
+{txt}        538 {c |}{res}          1        1.35       52.70
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ttest CORNEAL , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 544.0833{col 34} 4.539487{col 46} 27.23692{col 58} 534.8677{col 70}  553.299
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 530.2632{col 34} 6.486739{col 46} 39.98695{col 58} 517.1198{col 70} 543.4065
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 536.9865{col 34} 4.051158{col 46} 34.84938{col 58} 528.9125{col 70} 545.0604
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 13.82018{col 34}   7.9972{col 58}-2.121952{col 70}  29.7623
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  1.7281
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9559         {txt}Pr(|T| > |t|) = {res}0.0883          {txt}Pr(T > t) = {res}0.0441
+
+{com}. ed studyno Zygo_PP CORNEAL
+
+. ttest  ANTCHAM , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 3.598611{col 34} .0483065{col 46} .2898389{col 58} 3.500544{col 70} 3.696678
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 3.608158{col 34} .0314737{col 46} .1940167{col 58} 3.544386{col 70}  3.67193
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 3.603514{col 34} .0283271{col 46} .2436786{col 58} 3.547058{col 70} 3.659969
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0095468{col 34}  .057056{col 58}-.1232858{col 70} .1041922
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.1673
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.4338         {txt}Pr(|T| > |t|) = {res}0.8676          {txt}Pr(T > t) = {res}0.5662
+
+{com}. tab LENSTHIC
+
+   {txt}LENSTHIC {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       3.21 {c |}{res}          4        5.41        5.41
+{txt}       3.22 {c |}{res}          2        2.70        8.11
+{txt}       3.27 {c |}{res}          4        5.41       13.51
+{txt}        3.3 {c |}{res}          2        2.70       16.22
+{txt}       3.38 {c |}{res}          2        2.70       18.92
+{txt}       3.41 {c |}{res}          4        5.41       24.32
+{txt}       3.42 {c |}{res}          2        2.70       27.03
+{txt}        3.5 {c |}{res}          2        2.70       29.73
+{txt}       3.51 {c |}{res}          2        2.70       32.43
+{txt}       3.53 {c |}{res}          4        5.41       37.84
+{txt}       3.58 {c |}{res}          2        2.70       40.54
+{txt}        3.6 {c |}{res}          2        2.70       43.24
+{txt}       3.63 {c |}{res}          4        5.41       48.65
+{txt}       3.64 {c |}{res}          2        2.70       51.35
+{txt}       3.66 {c |}{res}          6        8.11       59.46
+{txt}       3.69 {c |}{res}          2        2.70       62.16
+{txt}       3.72 {c |}{res}          2        2.70       64.86
+{txt}       3.76 {c |}{res}          2        2.70       67.57
+{txt}       3.78 {c |}{res}          2        2.70       70.27
+{txt}       3.84 {c |}{res}          4        5.41       75.68
+{txt}       3.85 {c |}{res}          4        5.41       81.08
+{txt}       3.86 {c |}{res}          2        2.70       83.78
+{txt}       3.89 {c |}{res}          2        2.70       86.49
+{txt}       3.91 {c |}{res}          2        2.70       89.19
+{txt}       3.92 {c |}{res}          2        2.70       91.89
+{txt}       3.95 {c |}{res}          2        2.70       94.59
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ttest  LENSTHIC  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 3.735556{col 34}  .061034{col 46}  .366204{col 58}  3.61165{col 70} 3.859461
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 3.583158{col 34} .0403542{col 46} .2487602{col 58} 3.501392{col 70} 3.664923
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 3.657297{col 34} .0370433{col 46} .3186586{col 58}  3.58347{col 70} 3.731124
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .1523977{col 34} .0724331{col 58} .0080049{col 70} .2967905
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  2.1040
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9806         {txt}Pr(|T| > |t|) = {res}0.0389          {txt}Pr(T > t) = {res}0.0194
+
+{com}. tab  KERATON
+
+    {txt}KERATON {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+      39.25 {c |}{res}          1        1.35        1.35
+{txt}      40.25 {c |}{res}          1        1.35        2.70
+{txt}       40.5 {c |}{res}          1        1.35        4.05
+{txt}      40.75 {c |}{res}          1        1.35        5.41
+{txt}         41 {c |}{res}          1        1.35        6.76
+{txt}      41.25 {c |}{res}          1        1.35        8.11
+{txt}      41.37 {c |}{res}          1        1.35        9.46
+{txt}       41.5 {c |}{res}          2        2.70       12.16
+{txt}      41.75 {c |}{res}          3        4.05       16.22
+{txt}         42 {c |}{res}          1        1.35       17.57
+{txt}      42.25 {c |}{res}          2        2.70       20.27
+{txt}      42.37 {c |}{res}          1        1.35       21.62
+{txt}       42.5 {c |}{res}          6        8.11       29.73
+{txt}      42.75 {c |}{res}          5        6.76       36.49
+{txt}         43 {c |}{res}          7        9.46       45.95
+{txt}      43.25 {c |}{res}          2        2.70       48.65
+{txt}      43.37 {c |}{res}          1        1.35       50.00
+{txt}       43.5 {c |}{res}          3        4.05       54.05
+{txt}      43.62 {c |}{res}          1        1.35       55.41
+{txt}      43.75 {c |}{res}          3        4.05       59.46
+{txt}      43.87 {c |}{res}          1        1.35       60.81
+{txt}         44 {c |}{res}          5        6.76       67.57
+{txt}      44.25 {c |}{res}          1        1.35       68.92
+{txt}       44.5 {c |}{res}          3        4.05       72.97
+{txt}      44.75 {c |}{res}          2        2.70       75.68
+{txt}         45 {c |}{res}          1        1.35       77.03
+{err}{hline 2}Break{hline 2}
+{txt}{search r(1):r(1);}
+
+{com}. ttest   KERATON , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 42.73889{col 34} .2386512{col 46} 1.431907{col 58}  42.2544{col 70} 43.22338
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 44.48895{col 34} .2915939{col 46} 1.797505{col 58} 43.89812{col 70} 45.07977
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 43.63757{col 34} .2142331{col 46} 1.842903{col 58}  43.2106{col 70} 44.06453
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-1.750058{col 34} .3791194{col 58}-2.505819{col 70}-.9942978
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -4.6161
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}1.0000
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta saved
+
+{com}. ed IOP*
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta saved
+
+{com}. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. ed
+
+. gen IOPREIO1=IOPRE1IO=IOPRE2IO
+{err}invalid syntax
+{txt}{search r(198):r(198);}
+
+{com}. gen IOPREIO1= IOPRE1IO if IOPRE2IO==.
+{txt}(36 missing values generated)
+
+{com}. ed IOPRE1IO IOPRE2IO IOPREIO
+
+. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta"
+
+. ed
+
+. gen IOPREIO1= IOPRE1IO=. if IOPREIO==.
+{err}invalid syntax
+{txt}{search r(198):r(198);}
+
+{com}. gen IOPREIO1= IOPRE1IO if IOPREIO==.
+{err}IOPREIO not found
+{txt}{search r(111):r(111);}
+
+{com}. gen IOPREIO1=IOPRE1IO
+{txt}(3 missing values generated)
+
+{com}. replace IOPREIO1=IOPRE2IO if IOPRE2IO==.
+{txt}(1 real change made, 1 to missing)
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. ed
+
+. gen IOPREIO=IOPRE1IO
+{txt}(3 missing values generated)
+
+{com}. replace IOPREIO if IOPREIO==.
+{err}=exp required
+{txt}{search r(100):r(100);}
+
+{com}. replace IOPREIO=IOPREIO if IOPREIO==.
+{txt}(0 real changes made)
+
+{com}. replace IOPREIO=IOPRE1IO if IOPREIO==.
+{txt}(0 real changes made)
+
+{com}. h replace
+
+. ed
+
+. replace IOPREIO =IOPLE2IO  if  IOPLE2IO ==.
+{txt}(2 real changes made, 2 to missing)
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. replace IOPREIO =IOPLE2IO  if  IOPLE1O ==.
+{err}variable {bf}IOPREIO{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. replace IOPREIO =IOPLE2IO  if  IOPLE1IO ==.
+{err}variable {bf}IOPREIO{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. replace IOPREIO =IOPLE2IO  if  IOPLE2IO  ==.
+{err}variable {bf}IOPREIO{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. gen IOPREIO=IOPRE1IO
+{txt}(3 missing values generated)
+
+{com}. replace IOPREIO =IOPLE2IO  if  IOPLE1IO  ==.
+{txt}(3 real changes made, 1 to missing)
+
+{com}. ed IOPLE1IO IOPLE2IO IOPREIO
+
+. tab IOPREIO
+
+    {txt}IOPREIO {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          8 {c |}{res}          1        2.86        2.86
+{txt}          9 {c |}{res}          1        2.86        5.71
+{txt}         10 {c |}{res}          6       17.14       22.86
+{txt}         11 {c |}{res}          2        5.71       28.57
+{txt}         12 {c |}{res}          6       17.14       45.71
+{txt}         14 {c |}{res}          8       22.86       68.57
+{txt}         15 {c |}{res}          1        2.86       71.43
+{txt}         16 {c |}{res}          5       14.29       85.71
+{txt}         17 {c |}{res}          1        2.86       88.57
+{txt}         18 {c |}{res}          2        5.71       94.29
+{txt}         20 {c |}{res}          2        5.71      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         35      100.00
+
+{com}. ed IOP*
+
+. ttest IOPREIO , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     17{col 22} 13.17647{col 34} .7388151{col 46} 3.046213{col 58} 11.61025{col 70} 14.74269
+      {txt}MZ {c |}{res}{col 12}     18{col 22} 13.72222{col 34} .7488796{col 46} 3.177227{col 58} 12.14222{col 70} 15.30222
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     35{col 22} 13.45714{col 34} .5207345{col 46} 3.080707{col 58} 12.39888{col 70}  14.5154
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.5457516{col 34} 1.053287{col 58} -2.68868{col 70} 1.597177
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.5181
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      33
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.3039         {txt}Pr(|T| > |t|) = {res}0.6078          {txt}Pr(T > t) = {res}0.6961
+
+{com}. ed
+
+. ren IOPREIO IOPREIO1
+{res}
+{com}. ttest IOPLE1IO IOPLE2IO IOPRE2IO IOPRE2IO, by(Zygo_PP )
+{err}too many variables specified
+{txt}{search r(103):r(103);}
+
+{com}. ttest IOPLE1IO IOPLE2IO , by(Zygo_PP )
+{err}too many variables specified
+{txt}{search r(103):r(103);}
+
+{com}. ed IOP*
+
+. ren IOPREIO1 IOPREIOL1
+{res}
+{com}. replace IOPREIOR2 =IOPRE2IO  if  IOPRE1IO  ==.
+{err}variable {bf}IOPREIOR2{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. gen IOPREIO=IOPRE2IO
+{txt}(2 missing values generated)
+
+{com}. drop IOPREIO
+
+. drop IOPREIOL1
+
+. gen IOPLEIOL1=IOPLE1IO
+{txt}(4 missing values generated)
+
+{com}. replace IOPREIOL1 =IOPLE2IO  if  IOPLE1IO  ==.
+{err}variable {bf}IOPREIOL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. replace IOPLEIOL1 =IOPLE2IO  if  IOPLE1IO  ==.
+{txt}(2 real changes made)
+
+{com}. gen IOPREIOR2 =IOPRE1IO
+{txt}(3 missing values generated)
+
+{com}. replace  IOPREIOR2=IOPRE2IO   if  IOPRE1IO   ==.
+{txt}(2 real changes made)
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. ren IOPLEIOL1 IOPLEIO1
+{res}
+{com}. ren IOPREIOR2 IOPREIO2
+{res}
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta saved
+
+{com}. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON IOPLEIO   , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: IOPLEIO2 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     242   {txt}->{res}     238
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      IOPLEIO1 IOPLEIO2   {txt}->   {res}IOPLEIO
+{txt}{hline 77}
+
+{com}. ed
+
+. ed IOPLEIO
+
+. ed
+
+. clear
+
+. use"C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twins_reshape_74.dta", replace
+
+. ed
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. ed
+
+. gen IOPLEIOL1=IOPLE1IO
+{txt}(4 missing values generated)
+
+{com}. replace IOPLEIOL1 =IOPLE2IO  if  IOPLE1IO  ==.
+{txt}(2 real changes made)
+
+{com}. gen IOPREIOR2 =IOPRE1IO
+{txt}(3 missing values generated)
+
+{com}. replace  IOPREIOR2=IOPRE2IO   if  IOPRE1IO   ==.
+{txt}(2 real changes made)
+
+{com}. ren IOPLEIOL1 IOPLEIO1
+{res}{err}variable {bf}IOPLEIO1{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. ed
+
+. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON IOPREIO   , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: IOPREIO1 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     244   {txt}->{res}     240
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      IOPREIO1 IOPREIO2   {txt}->   {res}IOPREIO
+{txt}{hline 77}
+
+{com}. ed
+
+. drop IOPLEIO1 IOPREIO IOPLEIOL1 IOPREIOR2
+
+. ed
+
+. clear
+
+. gen IOPLEIO1=IOPLE1IO
+{err}IOPLE1IO not found
+{txt}{search r(111):r(111);}
+
+{com}. gen IOPLEIO1=IOPLE1IO
+{err}IOPLE1IO not found
+{txt}{search r(111):r(111);}
+
+{com}. gen IOPLEIOL1=IOPLE1IO
+{err}IOPLE1IO not found
+{txt}{search r(111):r(111);}
+
+{com}. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta" 
+
+. gen IOPLEIO1=IOPLE1IO
+{err}variable {bf}IOPLEIO1{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. ed
+
+. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON IOPREIO2  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: IOPREIO21 not found)
+{err}variable {bf}IOPREIO2{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. reshape long AMPAMPL  AXLENLE CORNEAL ANTCHAM KERATON IOPREIO  , i(studyno  ) j(twins)
+{txt}(note: j = 1 2)
+(note: IOPREIO1 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     242   {txt}->{res}     238
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      IOPREIO1 IOPREIO2   {txt}->   {res}IOPREIO
+{txt}{hline 77}
+
+{com}. ed
+
+. clear
+
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\twin_study.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}25 Jul 2022, 10:43:10
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

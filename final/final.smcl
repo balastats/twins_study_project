@@ -1,0 +1,628 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\final.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}25 Jul 2022, 19:49:33
+
+{com}. ed
+
+. ed AXLENRE ANTCHAM IOPREIO CORNEAL AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN
+{bf}{err}AXLENRE{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. ed AXLENRE ANTCHAM IOPREIO CORNEAL AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{bf}{err}AXLENRE{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO CORNEAL AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}CORNEAL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO CORNEAL AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}CORNEAL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO CORNEAL  AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}CORNEAL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. ed AXLENRE ANTCHAM IOPREIO CORNEAL  AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp
+{bf}{err}AXLENRE{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO CORNEAL  AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}CORNEAL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO CORNEAL  AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}CORNEAL1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO   AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT COMPSUN STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+{err}variable {bf}COMPSUN1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM IOPREIO   AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT  STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp , i(studyno ) j(twins)
+{txt}(note: j = 1 2)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}      74
+{txt}Number of variables            {res}     240   {txt}->{res}     217
+{txt}j variable (2 values)                     ->   {res}twins
+{txt}xij variables:
+                      {res}AXLENRE1 AXLENRE2   {txt}->   {res}AXLENRE
+                      ANTCHAM1 ANTCHAM2   {txt}->   {res}ANTCHAM
+                      IOPREIO1 IOPREIO2   {txt}->   {res}IOPREIO
+                      AMPAMPL1 AMPAMPL2   {txt}->   {res}AMPAMPL
+                      AXLENLE1 AXLENLE2   {txt}->   {res}AXLENLE
+                      CORNEAL1 CORNEAL2   {txt}->   {res}CORNEAL
+                      KERATON1 KERATON2   {txt}->   {res}KERATON
+                      KERATOD1 KERATOD2   {txt}->   {res}KERATOD
+                      DILATRE1 DILATRE2   {txt}->   {res}DILATRE
+                      DILATLE1 DILATLE2   {txt}->   {res}DILATLE
+                      OUTDORT1 OUTDORT2   {txt}->   {res}OUTDORT
+                      OUTDORS1 OUTDORS2   {txt}->   {res}OUTDORS
+                      COMPMON1 COMPMON2   {txt}->   {res}COMPMON
+                      COMPWED1 COMPWED2   {txt}->   {res}COMPWED
+                      COMPFRI1 COMPFRI2   {txt}->   {res}COMPFRI
+                      COMPSAT1 COMPSAT2   {txt}->   {res}COMPSAT
+                      STEACUT1 STEACUT2   {txt}->   {res}STEACUT
+                      IOPLEIO1 IOPLEIO2   {txt}->   {res}IOPLEIO
+                      PLAYGAT1 PLAYGAT2   {txt}->   {res}PLAYGAT
+                      PLAYGAS1 PLAYGAS2   {txt}->   {res}PLAYGAS
+                      COMPTUE1 COMPTUE2   {txt}->   {res}COMPTUE
+                      COMPSUN1 COMPSUN2   {txt}->   {res}COMPSUN
+                          iodfd1 iodfd2   {txt}->   {res}iodfd
+                          iodmp1 iodmp2   {txt}->   {res}iodmp
+{txt}{hline 77}
+
+{com}. save reshape_74_final
+{txt}file reshape_74_final.dta saved
+
+{com}. ed
+
+.  order AXLENRE ANTCHAM IOPREIO   AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT  STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp
+
+.  order studyno Zygo_PP  mage fage sex B* AXLENRE ANTCHAM IOPREIO   AMPAMPL AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT  STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp
+
+.  order studyno Zygo_PP  mage fage sex BIRTHOR1 BIRTHWT2 ht wt AMPAMPL AXLENRE  ANTCHAM  IOPREIO    AXLENLE CORNEAL KERATON KERATOD DILATRE DILATLE OUTDORT OUTDORS COMPMON COMPWED COMPFRI COMPSAT  STEACUT IOPLEIO PLAYGAT PLAYGAS COMPTUE COMPSUN iodfd iodmp
+
+. save "reshape_74_final.dta", replace
+{txt}file reshape_74_final.dta saved
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\merge_twin_study_37.dta", clear
+
+. ed
+
+. tab sex Zygo_PP , chi2 col exact
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+{text}Enumerating sample-space combinations:
+{text}stage 3:{col 11}enumerations = 1
+{text}stage 2:{col 11}enumerations = 1
+{text}stage 1:{col 11}enumerations = 0
+
+           {c |}        Zygo_PP
+       sex {c |}        DZ         MZ {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}         4          7 {txt}{c |}{res}        11 
+           {txt}{c |}{res}     22.22      36.84 {txt}{c |}{res}     29.73 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}         0         12 {txt}{c |}{res}        12 
+           {txt}{c |}{res}      0.00      63.16 {txt}{c |}{res}     32.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}        14          0 {txt}{c |}{res}        14 
+           {txt}{c |}{res}     77.78       0.00 {txt}{c |}{res}     37.84 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}        18         19 {txt}{c |}{res}        37 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res} 26.8107  {txt} Pr = {res}0.000
+{txt}           Fisher's exact =                 {res}0.000
+
+{com}. ed B*
+
+. ed
+
+. ed H*
+
+. ed
+
+. drop bw_kg lbw_kg
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\merge_twin_study_37.dta saved
+
+{com}. sum AMPAMPL
+{bf}{err}AMPAMPL{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\merge_twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\merge_twin_study_37.dta saved
+
+{com}. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta", clear
+
+. sum AMPAMPL
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 5}AMPAMPL {c |}{res}         70    8.685714    .9712215          7         12
+
+{com}. ttest AMPAMPL, by (Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     34{col 22} 8.705882{col 34} .1663781{col 46} .9701425{col 58} 8.367384{col 70} 9.044381
+      {txt}MZ {c |}{res}{col 12}     36{col 22} 8.666667{col 34} .1642685{col 46} .9856108{col 58} 8.333184{col 70} 9.000149
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     70{col 22} 8.685714{col 34} .1160832{col 46} .9712215{col 58} 8.454135{col 70} 8.917294
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} .0392157{col 34} .2339144{col 58}-.4275532{col 70} .5059846
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  0.1676
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      68
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.5663         {txt}Pr(|T| > |t|) = {res}0.8674          {txt}Pr(T > t) = {res}0.4337
+
+{com}. gen zyg = 1 if Zygo_PP =="MZ"
+{txt}(36 missing values generated)
+
+{com}. replace zyg = 0 if Zygo_PP  == "DZ"
+{txt}(36 real changes made)
+
+{com}. tab zyg
+
+        {txt}zyg {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36       48.65       48.65
+{txt}          1 {c |}{res}         38       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. label variable zyg "Zygo_PP "
+
+. label define zyg 1 "MZ" 0 "DZ"
+
+. label values zyg zyg
+
+. regress AMPAMPL zyg
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        70
+{txt}{hline 13}{c +}{hline 34}   F(1, 68)        = {res}     0.03
+{txt}       Model {c |} {res} .026890756         1  .026890756   {txt}Prob > F        ={res}    0.8674
+{txt}    Residual {c |} {res} 65.0588235        68  .956747405   {txt}R-squared       ={res}    0.0004
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0143
+{txt}       Total {c |} {res} 65.0857143        69  .943271222   {txt}Root MSE        =   {res} .97813
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     AMPAMPL{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}-.0392157{col 26}{space 2} .2339144{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4}-.5059846{col 67}{space 3} .4275532
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 8.705882{col 26}{space 2} .1677487{col 37}{space 1}   51.90{col 46}{space 3}0.000{col 54}{space 4} 8.371145{col 67}{space 3}  9.04062
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. regress AMPAMPL zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        70
+                                                {txt}F(1, 36)          =  {res}     0.02
+                                                {txt}Prob > F          = {res}    0.8925
+                                                {txt}R-squared         = {res}    0.0004
+                                                {txt}Root MSE          =    {res} .97813
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AMPAMPL{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}-.0392157{col 26}{space 2} .2882529{col 37}{space 1}   -0.14{col 46}{space 3}0.893{col 54}{space 4}-.6238196{col 67}{space 3} .5453883
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 8.705882{col 26}{space 2} .1841564{col 37}{space 1}   47.27{col 46}{space 3}0.000{col 54}{space 4} 8.332396{col 67}{space 3} 9.079369
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ed
+
+. ed A*
+
+. ed AXLENRE
+
+. regress AXLENRE zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.50
+                                                {txt}Prob > F          = {res}    0.4859
+                                                {txt}R-squared         = {res}    0.0124
+                                                {txt}Root MSE          =    {res}  1.736
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AXLENRE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .3842105{col 26}{space 2} .5456983{col 37}{space 1}    0.70{col 46}{space 3}0.486{col 54}{space 4} -.722517{col 67}{space 3} 1.490938
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}   23.195{col 26}{space 2} .2013264{col 37}{space 1}  115.21{col 46}{space 3}0.000{col 54}{space 4} 22.78669{col 67}{space 3} 23.60331
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ttest AXLENRE , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22}   23.195{col 34} .1641377{col 46} .9848263{col 58} 22.86178{col 70} 23.52822
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.57921{col 34} .3608228{col 46} 2.224261{col 58} 22.84811{col 70} 24.31031
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22}  23.3923{col 34} .2016804{col 46} 1.734921{col 58} 22.99035{col 70} 23.79425
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3842105{col 34} .4037698{col 58}-1.189111{col 70} .4206898
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.9516
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1723         {txt}Pr(|T| > |t|) = {res}0.3445          {txt}Pr(T > t) = {res}0.8277
+
+{com}. ed AXLENRE AXLENLE
+
+. test AXLEN
+{bf}{err}AXLEN{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. test AXLENRE , by(Zygo_PP )
+{err}option {bf:by()} not allowed
+{txt}{search r(198):r(198);}
+
+{com}. ttest AXLENRE , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22}   23.195{col 34} .1641377{col 46} .9848263{col 58} 22.86178{col 70} 23.52822
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.57921{col 34} .3608228{col 46} 2.224261{col 58} 22.84811{col 70} 24.31031
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22}  23.3923{col 34} .2016804{col 46} 1.734921{col 58} 22.99035{col 70} 23.79425
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3842105{col 34} .4037698{col 58}-1.189111{col 70} .4206898
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.9516
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1723         {txt}Pr(|T| > |t|) = {res}0.3445          {txt}Pr(T > t) = {res}0.8277
+
+{com}. ttest AXLENLE  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 23.16722{col 34}  .164691{col 46} .9881458{col 58} 22.83288{col 70} 23.50156
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.49658{col 34} .3217834{col 46} 1.983606{col 58} 22.84458{col 70} 24.14857
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 23.33635{col 34} .1834327{col 46} 1.577948{col 58} 22.97077{col 70} 23.70193
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3293567{col 34} .3674952{col 58}-1.061945{col 70} .4032315
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.8962
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1866         {txt}Pr(|T| > |t|) = {res}0.3731          {txt}Pr(T > t) = {res}0.8134
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta saved
+
+{com}. regress AXLENRE  zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.50
+                                                {txt}Prob > F          = {res}    0.4859
+                                                {txt}R-squared         = {res}    0.0124
+                                                {txt}Root MSE          =    {res}  1.736
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AXLENRE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .3842105{col 26}{space 2} .5456983{col 37}{space 1}    0.70{col 46}{space 3}0.486{col 54}{space 4} -.722517{col 67}{space 3} 1.490938
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}   23.195{col 26}{space 2} .2013264{col 37}{space 1}  115.21{col 46}{space 3}0.000{col 54}{space 4} 22.78669{col 67}{space 3} 23.60331
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. regress AXLENLE   zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.44
+                                                {txt}Prob > F          = {res}    0.5106
+                                                {txt}R-squared         = {res}    0.0110
+                                                {txt}Root MSE          =    {res} 1.5801
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AXLENLE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .3293567{col 26}{space 2} .4956762{col 37}{space 1}    0.66{col 46}{space 3}0.511{col 54}{space 4}-.6759212{col 67}{space 3} 1.334635
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 23.16722{col 26}{space 2} .1973888{col 37}{space 1}  117.37{col 46}{space 3}0.000{col 54}{space 4}  22.7669{col 67}{space 3} 23.56755
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ttest CORNEAL  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 544.0833{col 34} 4.539487{col 46} 27.23692{col 58} 534.8677{col 70}  553.299
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 530.2632{col 34} 6.486739{col 46} 39.98695{col 58} 517.1198{col 70} 543.4065
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 536.9865{col 34} 4.051158{col 46} 34.84938{col 58} 528.9125{col 70} 545.0604
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} 13.82018{col 34}   7.9972{col 58}-2.121952{col 70}  29.7623
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res}  1.7281
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.9559         {txt}Pr(|T| > |t|) = {res}0.0883          {txt}Pr(T > t) = {res}0.0441
+
+{com}. regress CORNEAL    zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     1.52
+                                                {txt}Prob > F          = {res}    0.2262
+                                                {txt}R-squared         = {res}    0.0398
+                                                {txt}Root MSE          =    {res} 34.385
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     CORNEAL{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}-13.82018{col 26}{space 2} 11.22356{col 37}{space 1}   -1.23{col 46}{space 3}0.226{col 54}{space 4}-36.58261{col 67}{space 3} 8.942257
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 544.0833{col 26}{space 2} 6.399408{col 37}{space 1}   85.02{col 46}{space 3}0.000{col 54}{space 4} 531.1047{col 67}{space 3} 557.0619
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ed
+
+. ttest ANTCHAM  , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 3.598611{col 34} .0483065{col 46} .2898389{col 58} 3.500544{col 70} 3.696678
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 3.608158{col 34} .0314737{col 46} .1940167{col 58} 3.544386{col 70}  3.67193
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 3.603514{col 34} .0283271{col 46} .2436786{col 58} 3.547058{col 70} 3.659969
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.0095468{col 34}  .057056{col 58}-.1232858{col 70} .1041922
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.1673
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.4338         {txt}Pr(|T| > |t|) = {res}0.8676          {txt}Pr(T > t) = {res}0.5662
+
+{com}. regress ANTCHAM   zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.02
+                                                {txt}Prob > F          = {res}    0.9022
+                                                {txt}R-squared         = {res}    0.0004
+                                                {txt}Root MSE          =    {res} .24532
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     ANTCHAM{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .0095468{col 26}{space 2} .0771185{col 37}{space 1}    0.12{col 46}{space 3}0.902{col 54}{space 4}-.1468568{col 67}{space 3} .1659503
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.598611{col 26}{space 2} .0663621{col 37}{space 1}   54.23{col 46}{space 3}0.000{col 54}{space 4} 3.464023{col 67}{space 3}   3.7332
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ed AX*
+
+. ed AXLENLE
+
+. ed AXLEN*
+
+. ttest AXLENLE , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 23.16722{col 34}  .164691{col 46} .9881458{col 58} 22.83288{col 70} 23.50156
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.49658{col 34} .3217834{col 46} 1.983606{col 58} 22.84458{col 70} 24.14857
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 23.33635{col 34} .1834327{col 46} 1.577948{col 58} 22.97077{col 70} 23.70193
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3293567{col 34} .3674952{col 58}-1.061945{col 70} .4032315
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.8962
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1866         {txt}Pr(|T| > |t|) = {res}0.3731          {txt}Pr(T > t) = {res}0.8134
+
+{com}. ttest AXLENRE , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22}   23.195{col 34} .1641377{col 46} .9848263{col 58} 22.86178{col 70} 23.52822
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 23.57921{col 34} .3608228{col 46} 2.224261{col 58} 22.84811{col 70} 24.31031
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22}  23.3923{col 34} .2016804{col 46} 1.734921{col 58} 22.99035{col 70} 23.79425
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.3842105{col 34} .4037698{col 58}-1.189111{col 70} .4206898
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.9516
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.1723         {txt}Pr(|T| > |t|) = {res}0.3445          {txt}Pr(T > t) = {res}0.8277
+
+{com}. regress AXLENLE  zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.44
+                                                {txt}Prob > F          = {res}    0.5106
+                                                {txt}R-squared         = {res}    0.0110
+                                                {txt}Root MSE          =    {res} 1.5801
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AXLENLE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .3293567{col 26}{space 2} .4956762{col 37}{space 1}    0.66{col 46}{space 3}0.511{col 54}{space 4}-.6759212{col 67}{space 3} 1.334635
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 23.16722{col 26}{space 2} .1973888{col 37}{space 1}  117.37{col 46}{space 3}0.000{col 54}{space 4}  22.7669{col 67}{space 3} 23.56755
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. regress AXLENRE   zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     0.50
+                                                {txt}Prob > F          = {res}    0.4859
+                                                {txt}R-squared         = {res}    0.0124
+                                                {txt}Root MSE          =    {res}  1.736
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AXLENRE{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .3842105{col 26}{space 2} .5456983{col 37}{space 1}    0.70{col 46}{space 3}0.486{col 54}{space 4} -.722517{col 67}{space 3} 1.490938
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}   23.195{col 26}{space 2} .2013264{col 37}{space 1}  115.21{col 46}{space 3}0.000{col 54}{space 4} 22.78669{col 67}{space 3} 23.60331
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ed E*
+
+. ed K*
+
+. ttest KERATOD , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     36{col 22} 43.57194{col 34} .2952158{col 46} 1.771295{col 58} 42.97262{col 70} 44.17126
+      {txt}MZ {c |}{res}{col 12}     38{col 22} 45.25868{col 34} .3175679{col 46}  1.95762{col 58} 44.61523{col 70} 45.90214
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     74{col 22} 44.43811{col 34} .2373033{col 46}  2.04136{col 58} 43.96516{col 70} 44.91105
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22} -1.68674{col 34} .4347777{col 58}-2.553453{col 70}-.8200263
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -3.8795
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      72
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0001         {txt}Pr(|T| > |t|) = {res}0.0002          {txt}Pr(T > t) = {res}0.9999
+
+{com}. regress KERATOD    zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        74
+                                                {txt}F(1, 36)          =  {res}     7.60
+                                                {txt}Prob > F          = {res}    0.0091
+                                                {txt}R-squared         = {res}    0.1729
+                                                {txt}Root MSE          =    {res} 1.8694
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     KERATOD{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}  1.68674{col 26}{space 2} .6118646{col 37}{space 1}    2.76{col 46}{space 3}0.009{col 54}{space 4} .4458209{col 67}{space 3} 2.927659
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 43.57194{col 26}{space 2} .4154704{col 37}{space 1}  104.87{col 46}{space 3}0.000{col 54}{space 4} 42.72933{col 67}{space 3} 44.41456
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. ed R*
+
+. ed S*
+
+. ttest IOPLEIO , by(Zygo_PP )
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+      DZ {c |}{res}{col 12}     33{col 22} 12.66667{col 34} .4839599{col 46} 2.780138{col 58} 11.68087{col 70} 13.65246
+      {txt}MZ {c |}{res}{col 12}     34{col 22} 13.23529{col 34}   .53581{col 46} 3.124282{col 58} 12.14518{col 70} 14.32541
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}     67{col 22} 12.95522{col 34} .3605569{col 46} 2.951285{col 58} 12.23535{col 70}  13.6751
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-.5686275{col 34}   .72329{col 58}-2.013137{col 70} .8758824
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}DZ{txt}) - mean({res}MZ{txt})                                    t = {res} -0.7862
+{txt}Ho: diff = 0                                     degrees of freedom = {res}      65
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.2173         {txt}Pr(|T| > |t|) = {res}0.4346          {txt}Pr(T > t) = {res}0.7827
+
+{com}. ed  IOPLEIO
+
+. regress  IOPLEIO    zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        67
+                                                {txt}F(1, 34)          =  {res}     0.38
+                                                {txt}Prob > F          = {res}    0.5441
+                                                {txt}R-squared         = {res}    0.0094
+                                                {txt}Root MSE          =    {res} 2.9599
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:35} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     IOPLEIO{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2} .5686275{col 26}{space 2} .9279501{col 37}{space 1}    0.61{col 46}{space 3}0.544{col 54}{space 4}-1.317194{col 67}{space 3} 2.454449
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 12.66667{col 26}{space 2} .6046375{col 37}{space 1}   20.95{col 46}{space 3}0.000{col 54}{space 4}  11.4379{col 67}{space 3} 13.89544
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. egen tag=tag(studyno )
+
+. tab tag
+
+{txt}tag(studyno {c |}
+          ) {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         37       50.00       50.00
+{txt}          1 {c |}{res}         37       50.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta saved
+
+{com}. ed if tag==1
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\reshape_74_final.dta saved
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\final.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}25 Jul 2022, 21:57:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

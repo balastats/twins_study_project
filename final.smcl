@@ -1,0 +1,1563 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}25 Jul 2022, 16:19:53
+
+{com}. tab Zygo_PP
+
+    {txt}Zygo_PP {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         DZ {c |}{res}         36       48.65       48.65
+{txt}         MZ {c |}{res}         38       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. gen zyg = 1 if Zygo_PP =="MZ"
+{err}variable {bf}zyg{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. replace zyg = 0 if Zygo_PP  == "DZ"
+{txt}(0 real changes made)
+
+{com}. tab zyg
+
+        {txt}zyg {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36       48.65       48.65
+{txt}          1 {c |}{res}         38       51.35      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         74      100.00
+
+{com}. regress AMPAMPL zyg
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}        70
+{txt}{hline 13}{c +}{hline 34}   F(1, 68)        = {res}     0.03
+{txt}       Model {c |} {res} .026890756         1  .026890756   {txt}Prob > F        ={res}    0.8674
+{txt}    Residual {c |} {res} 65.0588235        68  .956747405   {txt}R-squared       ={res}    0.0004
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0143
+{txt}       Total {c |} {res} 65.0857143        69  .943271222   {txt}Root MSE        =   {res} .97813
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     AMPAMPL{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}-.0392157{col 26}{space 2} .2339144{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4}-.5059846{col 67}{space 3} .4275532
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 8.705882{col 26}{space 2} .1677487{col 37}{space 1}   51.90{col 46}{space 3}0.000{col 54}{space 4} 8.371145{col 67}{space 3}  9.04062
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. h regress
+
+. regress AMPAMPL zyg, vce(cluster studyno)
+
+{txt}Linear regression                               Number of obs     = {res}        70
+                                                {txt}F(1, 36)          =  {res}     0.02
+                                                {txt}Prob > F          = {res}    0.8925
+                                                {txt}R-squared         = {res}    0.0004
+                                                {txt}Root MSE          =    {res} .97813
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:37} clusters in studyno)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     AMPAMPL{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}zyg {c |}{col 14}{res}{space 2}-.0392157{col 26}{space 2} .2882529{col 37}{space 1}   -0.14{col 46}{space 3}0.893{col 54}{space 4}-.6238196{col 67}{space 3} .5453883
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 8.705882{col 26}{space 2} .1841564{col 37}{space 1}   47.27{col 46}{space 3}0.000{col 54}{space 4} 8.332396{col 67}{space 3} 9.079369
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", clear
+
+. ed
+
+. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE
+{err}option {bf:i()} required
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(198):r(198);}
+
+{com}. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT
+{err}option {bf:i()} required
+
+{col 9} {it:long}                                {it:wide}
+{col 9}{c TLC}{hline 15}{c TRC}                   {c TLC}{hline 18}{c TRC}
+{col 9}{c |} {it:i   j}   a   b {c |}                   {c |} {it:i}   a1 a2  b1 b2 {c |}
+{col 9}{c |}{hline 15}{c |} <--- {bf:reshape} ---> {c |}{hline 18}{c |}
+{col 9}{c |} 1   1   1   2 {c |}                   {c |} 1   1   3   2  4 {c |}
+{col 9}{c |} 1   2   3   4 {c |}                   {c |} 2   5   7   6  8 {c |}
+{col 9}{c |} 2   1   5   6 {c |}                   {c BLC}{hline 18}{c BRC}
+{col 9}{c |} 2   2   7   8 {c |}
+{col 9}{c BLC}{hline 15}{c BRC}
+
+{col 9}long to wide: {bf:reshape wide a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j} existing variable)
+{col 9}wide to long: {bf:reshape long a b, i(}{it:i}{bf:) j(}{it:j}{bf:)}    ({it:j}    new   variable)
+{txt}{search r(198):r(198);}
+
+{com}. ed B*
+
+. ed W*
+
+. ed
+
+. ed studyno NAME2NAM GENDER1G GENDER2G
+
+. ed
+
+. ed studyno NAME2NAM GENDER1G GENDER2G
+
+. ed studyno NAME2NAM GENDER1G GENDER2G sex\
+{err}\ invalid name
+{txt}{search r(198):r(198);}
+
+{com}. ed studyno NAME2NAM GENDER1G GENDER2G sex
+
+. ed studyno NAME2NAM GENDER1G GENDER2G sex gender
+
+. ed
+
+. drop bw_kg lbw_kg
+
+. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT WEARSPE CONSENT HTHEIGH WTWEIGH TEACHFR PARENTO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATON KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORF OUTDORS COMPTHR RECYLAX ub iodfd iodmp nhn , i(studyno ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+{err}variable {bf:nhn3} type mismatch with other {bf:nhn} variables
+{txt}{search r(198):r(198);}
+
+{com}. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT WEARSPE CONSENT HTHEIGH WTWEIGH TEACHFR PARENTO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATON KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORF OUTDORS COMPTHR RECYLAX ub iodfd iodmp  , i(studyno ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+(note: SPECRES1 not found)
+(note: HTHEIGH1 not found)
+(note: WTWEIGH1 not found)
+(note: SPECLES1 not found)
+(note: RNFLRER1 not found)
+(note: ENDLLER1 not found)
+(note: GENDERG1 not found)
+(note: BIRTHWT1 not found)
+(note: PHYFACI1 not found)
+{err}variable {bf}HTHEIGH1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT WEARSPE CONSENT  WTWEIGH TEACHFR PARENTO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATON KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORF OUTDORS COMPTHR RECYLAX ub iodfd iodmp  , i(studyno ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+(note: SPECRES1 not found)
+(note: HTHEIGH1 not found)
+(note: WTWEIGH1 not found)
+(note: SPECLES1 not found)
+(note: RNFLRER1 not found)
+(note: ENDLLER1 not found)
+(note: GENDERG1 not found)
+(note: BIRTHWT1 not found)
+(note: PHYFACI1 not found)
+{err}variable {bf}WTWEIGH1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT WEARSPE CONSENT   TEACHFR PARENTO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATON KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORF OUTDORS COMPTHR RECYLAX ub iodfd iodmp  , i(studyno ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+(note: SPECRES1 not found)
+(note: HTHEIGH1 not found)
+(note: WTWEIGH1 not found)
+(note: SPECLES1 not found)
+(note: RNFLRER1 not found)
+(note: ENDLLER1 not found)
+(note: GENDERG1 not found)
+(note: BIRTHWT1 not found)
+(note: PHYFACI1 not found)
+(note: SPECRES2 not found)
+(note: HTHEIGH2 not found)
+(note: WTWEIGH2 not found)
+(note: REFERR2 not found)
+(note: SPECLES2 not found)
+(note: RNFLRER2 not found)
+(note: ENDLLER2 not found)
+(note: TWINNOT2 not found)
+(note: GENDERG2 not found)
+(note: BIRTHOR2 not found)
+(note: WEARSPE2 not found)
+(note: CONSENT2 not found)
+(note: TEACHFR2 not found)
+(note: PARENTO2 not found)
+(note: VISACDR2 not found)
+(note: VISACDL2 not found)
+(note: VISACNR2 not found)
+(note: VISACNL2 not found)
+(note: REFCYLA2 not found)
+(note: PHYFACI2 not found)
+(note: KERAREA2 not found)
+(note: KERALEA2 not found)
+(note: PLAYGAM2 not found)
+(note: PLAYGAW2 not found)
+(note: PLAYGAF2 not found)
+(note: OUTDORM2 not found)
+(note: OUTDORF2 not found)
+(note: COMPTHR2 not found)
+(note: RECYLAX2 not found)
+(note: AXLENRE3 not found)
+(note: ANTCHAM3 not found)
+(note: SPECRES3 not found)
+(note: IOPREIO3 not found)
+(note: CORNEAL3 not found)
+(note: HTHEIGH3 not found)
+(note: WTWEIGH3 not found)
+(note: AMPAMPL3 not found)
+(note: REFERR3 not found)
+(note: AXLENLE3 not found)
+(note: SPECLES3 not found)
+(note: RNFLRER3 not found)
+(note: ENDLLER3 not found)
+(note: DILATRE3 not found)
+(note: DILATLE3 not found)
+(note: COMPMON3 not found)
+(note: COMPTUE3 not found)
+(note: COMPWED3 not found)
+(note: COMPFRI3 not found)
+(note: COMPSAT3 not found)
+(note: COMPSUN3 not found)
+(note: TWINNOT3 not found)
+(note: GENDERG3 not found)
+(note: BIRTHOR3 not found)
+(note: BIRTHWT3 not found)
+(note: WEARSPE3 not found)
+(note: CONSENT3 not found)
+(note: TEACHFR3 not found)
+(note: PARENTO3 not found)
+(note: VISACDR3 not found)
+(note: VISACDL3 not found)
+(note: VISACNR3 not found)
+(note: VISACNL3 not found)
+(note: IOPLEIO3 not found)
+(note: REFCYLA3 not found)
+(note: PHYFACI3 not found)
+(note: KERATON3 not found)
+(note: KERATOD3 not found)
+(note: KERAREA3 not found)
+(note: KERALEA3 not found)
+(note: PLAYGAM3 not found)
+(note: PLAYGAT3 not found)
+(note: PLAYGAW3 not found)
+(note: PLAYGAF3 not found)
+(note: PLAYGAS3 not found)
+(note: OUTDORM3 not found)
+(note: OUTDORT3 not found)
+(note: OUTDORF3 not found)
+(note: OUTDORS3 not found)
+(note: COMPTHR3 not found)
+(note: RECYLAX3 not found)
+(note: iodfd3 not found)
+(note: iodmp3 not found)
+(note: AXLENRE4 not found)
+(note: ANTCHAM4 not found)
+(note: SPECRES4 not found)
+(note: IOPREIO4 not found)
+(note: CORNEAL4 not found)
+(note: HTHEIGH4 not found)
+(note: WTWEIGH4 not found)
+(note: AMPAMPL4 not found)
+(note: REFERR4 not found)
+(note: AXLENLE4 not found)
+(note: LENSTHI4 not found)
+(note: SPECLES4 not found)
+(note: RNFLRER4 not found)
+(note: ENDLLER4 not found)
+(note: DILATRE4 not found)
+(note: DILATLE4 not found)
+(note: COMPMON4 not found)
+(note: COMPTUE4 not found)
+(note: COMPWED4 not found)
+(note: COMPFRI4 not found)
+(note: COMPSAT4 not found)
+(note: COMPSUN4 not found)
+(note: TWINNOT4 not found)
+(note: GENDERG4 not found)
+(note: BIRTHOR4 not found)
+(note: BIRTHWT4 not found)
+(note: WEARSPE4 not found)
+(note: CONSENT4 not found)
+(note: TEACHFR4 not found)
+(note: PARENTO4 not found)
+(note: VISACDR4 not found)
+(note: VISACDL4 not found)
+(note: VISACNR4 not found)
+(note: VISACNL4 not found)
+(note: IOPLEIO4 not found)
+(note: REFSPHR4 not found)
+(note: REFSPHL4 not found)
+(note: REFCYLR4 not found)
+(note: REFCYLL4 not found)
+(note: REFCYLA4 not found)
+(note: PHYFACI4 not found)
+(note: KERATON4 not found)
+(note: KERATOD4 not found)
+(note: KERAREA4 not found)
+(note: KERALEA4 not found)
+(note: PLAYGAM4 not found)
+(note: PLAYGAT4 not found)
+(note: PLAYGAW4 not found)
+(note: PLAYGAF4 not found)
+(note: PLAYGAS4 not found)
+(note: OUTDORM4 not found)
+(note: OUTDORT4 not found)
+(note: OUTDORF4 not found)
+(note: OUTDORS4 not found)
+(note: COMPTHR4 not found)
+(note: RECYLAX4 not found)
+(note: ub4 not found)
+(note: iodfd4 not found)
+(note: iodmp4 not found)
+(note: AXLENRE5 not found)
+(note: ANTCHAM5 not found)
+(note: SPECRES5 not found)
+(note: IOPREIO5 not found)
+(note: CORNEAL5 not found)
+(note: HTHEIGH5 not found)
+(note: WTWEIGH5 not found)
+(note: AMPAMPL5 not found)
+(note: REFERR5 not found)
+(note: AXLENLE5 not found)
+(note: LENSTHI5 not found)
+(note: SPECLES5 not found)
+(note: RNFLRER5 not found)
+(note: ENDLLER5 not found)
+(note: DILATRE5 not found)
+(note: DILATLE5 not found)
+(note: COMPMON5 not found)
+(note: COMPTUE5 not found)
+(note: COMPWED5 not found)
+(note: COMPFRI5 not found)
+(note: COMPSAT5 not found)
+(note: COMPSUN5 not found)
+(note: TWINNOT5 not found)
+(note: GENDERG5 not found)
+(note: BIRTHOR5 not found)
+(note: BIRTHWT5 not found)
+(note: WEARSPE5 not found)
+(note: CONSENT5 not found)
+(note: TEACHFR5 not found)
+(note: PARENTO5 not found)
+(note: VISACDR5 not found)
+(note: VISACDL5 not found)
+(note: VISACNR5 not found)
+(note: VISACNL5 not found)
+(note: IOPLEIO5 not found)
+(note: REFSPHR5 not found)
+(note: REFSPHL5 not found)
+(note: REFCYLR5 not found)
+(note: REFCYLL5 not found)
+(note: REFCYLA5 not found)
+(note: PHYFACI5 not found)
+(note: KERATON5 not found)
+(note: KERATOD5 not found)
+(note: KERAREA5 not found)
+(note: KERALEA5 not found)
+(note: PLAYGAM5 not found)
+(note: PLAYGAT5 not found)
+(note: PLAYGAW5 not found)
+(note: PLAYGAF5 not found)
+(note: PLAYGAS5 not found)
+(note: OUTDORM5 not found)
+(note: OUTDORT5 not found)
+(note: OUTDORF5 not found)
+(note: OUTDORS5 not found)
+(note: COMPTHR5 not found)
+(note: RECYLAX5 not found)
+(note: ub5 not found)
+(note: iodfd5 not found)
+(note: iodmp5 not found)
+(note: AXLENRE6 not found)
+(note: ANTCHAM6 not found)
+(note: SPECRES6 not found)
+(note: IOPREIO6 not found)
+(note: CORNEAL6 not found)
+(note: HTHEIGH6 not found)
+(note: WTWEIGH6 not found)
+(note: AMPAMPL6 not found)
+(note: REFERR6 not found)
+(note: AXLENLE6 not found)
+(note: LENSTHI6 not found)
+(note: SPECLES6 not found)
+(note: RNFLRER6 not found)
+(note: ENDLLER6 not found)
+(note: DILATRE6 not found)
+(note: DILATLE6 not found)
+(note: COMPMON6 not found)
+(note: COMPTUE6 not found)
+(note: COMPWED6 not found)
+(note: COMPFRI6 not found)
+(note: COMPSAT6 not found)
+(note: COMPSUN6 not found)
+(note: TWINNOT6 not found)
+(note: GENDERG6 not found)
+(note: BIRTHOR6 not found)
+(note: BIRTHWT6 not found)
+(note: WEARSPE6 not found)
+(note: CONSENT6 not found)
+(note: TEACHFR6 not found)
+(note: PARENTO6 not found)
+(note: VISACDR6 not found)
+(note: VISACDL6 not found)
+(note: VISACNR6 not found)
+(note: VISACNL6 not found)
+(note: IOPLEIO6 not found)
+(note: REFSPHR6 not found)
+(note: REFSPHL6 not found)
+(note: REFCYLR6 not found)
+(note: REFCYLL6 not found)
+(note: REFCYLA6 not found)
+(note: PHYFACI6 not found)
+(note: KERATON6 not found)
+(note: KERATOD6 not found)
+(note: KERAREA6 not found)
+(note: KERALEA6 not found)
+(note: PLAYGAM6 not found)
+(note: PLAYGAT6 not found)
+(note: PLAYGAW6 not found)
+(note: PLAYGAF6 not found)
+(note: PLAYGAS6 not found)
+(note: OUTDORM6 not found)
+(note: OUTDORT6 not found)
+(note: OUTDORF6 not found)
+(note: OUTDORS6 not found)
+(note: COMPTHR6 not found)
+(note: RECYLAX6 not found)
+(note: ub6 not found)
+(note: iodfd6 not found)
+(note: iodmp6 not found)
+(note: AXLENRE7 not found)
+(note: ANTCHAM7 not found)
+(note: SPECRES7 not found)
+(note: IOPREIO7 not found)
+(note: CORNEAL7 not found)
+(note: HTHEIGH7 not found)
+(note: WTWEIGH7 not found)
+(note: AMPAMPL7 not found)
+(note: REFERR7 not found)
+(note: AXLENLE7 not found)
+(note: LENSTHI7 not found)
+(note: SPECLES7 not found)
+(note: RNFLRER7 not found)
+(note: ENDLLER7 not found)
+(note: DILATRE7 not found)
+(note: DILATLE7 not found)
+(note: COMPMON7 not found)
+(note: COMPTUE7 not found)
+(note: COMPWED7 not found)
+(note: COMPFRI7 not found)
+(note: COMPSAT7 not found)
+(note: COMPSUN7 not found)
+(note: TWINNOT7 not found)
+(note: GENDERG7 not found)
+(note: BIRTHOR7 not found)
+(note: BIRTHWT7 not found)
+(note: WEARSPE7 not found)
+(note: CONSENT7 not found)
+(note: TEACHFR7 not found)
+(note: PARENTO7 not found)
+(note: VISACDR7 not found)
+(note: VISACDL7 not found)
+(note: VISACNR7 not found)
+(note: VISACNL7 not found)
+(note: IOPLEIO7 not found)
+(note: REFSPHR7 not found)
+(note: REFSPHL7 not found)
+(note: REFCYLR7 not found)
+(note: REFCYLL7 not found)
+(note: REFCYLA7 not found)
+(note: PHYFACI7 not found)
+(note: KERATON7 not found)
+(note: KERATOD7 not found)
+(note: KERAREA7 not found)
+(note: KERALEA7 not found)
+(note: PLAYGAM7 not found)
+(note: PLAYGAT7 not found)
+(note: PLAYGAW7 not found)
+(note: PLAYGAF7 not found)
+(note: PLAYGAS7 not found)
+(note: OUTDORM7 not found)
+(note: OUTDORT7 not found)
+(note: OUTDORF7 not found)
+(note: OUTDORS7 not found)
+(note: COMPTHR7 not found)
+(note: RECYLAX7 not found)
+(note: ub7 not found)
+(note: iodfd7 not found)
+(note: iodmp7 not found)
+(note: AXLENRE8 not found)
+(note: ANTCHAM8 not found)
+(note: SPECRES8 not found)
+(note: IOPREIO8 not found)
+(note: CORNEAL8 not found)
+(note: HTHEIGH8 not found)
+(note: WTWEIGH8 not found)
+(note: AMPAMPL8 not found)
+(note: REFERR8 not found)
+(note: AXLENLE8 not found)
+(note: LENSTHI8 not found)
+(note: SPECLES8 not found)
+(note: RNFLRER8 not found)
+(note: ENDLLER8 not found)
+(note: DILATRE8 not found)
+(note: DILATLE8 not found)
+(note: COMPMON8 not found)
+(note: COMPTUE8 not found)
+(note: COMPWED8 not found)
+(note: COMPFRI8 not found)
+(note: COMPSAT8 not found)
+(note: COMPSUN8 not found)
+(note: TWINNOT8 not found)
+(note: GENDERG8 not found)
+(note: BIRTHOR8 not found)
+(note: BIRTHWT8 not found)
+(note: WEARSPE8 not found)
+(note: CONSENT8 not found)
+(note: TEACHFR8 not found)
+(note: PARENTO8 not found)
+(note: VISACDR8 not found)
+(note: VISACDL8 not found)
+(note: VISACNR8 not found)
+(note: VISACNL8 not found)
+(note: IOPLEIO8 not found)
+(note: REFSPHR8 not found)
+(note: REFSPHL8 not found)
+(note: REFCYLR8 not found)
+(note: REFCYLL8 not found)
+(note: REFCYLA8 not found)
+(note: PHYFACI8 not found)
+(note: KERATON8 not found)
+(note: KERATOD8 not found)
+(note: KERAREA8 not found)
+(note: KERALEA8 not found)
+(note: PLAYGAM8 not found)
+(note: PLAYGAT8 not found)
+(note: PLAYGAW8 not found)
+(note: PLAYGAF8 not found)
+(note: PLAYGAS8 not found)
+(note: OUTDORM8 not found)
+(note: OUTDORT8 not found)
+(note: OUTDORF8 not found)
+(note: OUTDORS8 not found)
+(note: COMPTHR8 not found)
+(note: RECYLAX8 not found)
+(note: ub8 not found)
+(note: iodfd8 not found)
+(note: iodmp8 not found)
+(note: AXLENRE9 not found)
+(note: ANTCHAM9 not found)
+(note: SPECRES9 not found)
+(note: IOPREIO9 not found)
+(note: CORNEAL9 not found)
+(note: HTHEIGH9 not found)
+(note: WTWEIGH9 not found)
+(note: AMPAMPL9 not found)
+(note: REFERR9 not found)
+(note: AXLENLE9 not found)
+(note: LENSTHI9 not found)
+(note: SPECLES9 not found)
+(note: RNFLRER9 not found)
+(note: ENDLLER9 not found)
+(note: DILATRE9 not found)
+(note: DILATLE9 not found)
+(note: COMPMON9 not found)
+(note: COMPTUE9 not found)
+(note: COMPWED9 not found)
+(note: COMPFRI9 not found)
+(note: COMPSAT9 not found)
+(note: COMPSUN9 not found)
+(note: TWINNOT9 not found)
+(note: GENDERG9 not found)
+(note: BIRTHOR9 not found)
+(note: BIRTHWT9 not found)
+(note: WEARSPE9 not found)
+(note: CONSENT9 not found)
+(note: TEACHFR9 not found)
+(note: PARENTO9 not found)
+(note: VISACDR9 not found)
+(note: VISACDL9 not found)
+(note: VISACNR9 not found)
+(note: VISACNL9 not found)
+(note: IOPLEIO9 not found)
+(note: REFSPHR9 not found)
+(note: REFSPHL9 not found)
+(note: REFCYLR9 not found)
+(note: REFCYLL9 not found)
+(note: REFCYLA9 not found)
+(note: PHYFACI9 not found)
+(note: KERATON9 not found)
+(note: KERATOD9 not found)
+(note: KERAREA9 not found)
+(note: KERALEA9 not found)
+(note: PLAYGAM9 not found)
+(note: PLAYGAT9 not found)
+(note: PLAYGAW9 not found)
+(note: PLAYGAF9 not found)
+(note: PLAYGAS9 not found)
+(note: OUTDORM9 not found)
+(note: OUTDORT9 not found)
+(note: OUTDORF9 not found)
+(note: OUTDORS9 not found)
+(note: COMPTHR9 not found)
+(note: RECYLAX9 not found)
+(note: ub9 not found)
+(note: iodfd9 not found)
+(note: iodmp9 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}     333
+{txt}Number of variables            {res}     238   {txt}->{res}     196
+{txt}j variable (9 values)                     ->   {res}twins
+{txt}xij variables:
+         {res}AXLENRE1 AXLENRE2 ... AXLENRE9   {txt}->   {res}AXLENRE
+         ANTCHAM1 ANTCHAM2 ... ANTCHAM9   {txt}->   {res}ANTCHAM
+         SPECRES1 SPECRES2 ... SPECRES9   {txt}->   {res}SPECRES
+         IOPREIO1 IOPREIO2 ... IOPREIO9   {txt}->   {res}IOPREIO
+         CORNEAL1 CORNEAL2 ... CORNEAL9   {txt}->   {res}CORNEAL
+         HTHEIGH1 HTHEIGH2 ... HTHEIGH9   {txt}->   {res}HTHEIGH
+         WTWEIGH1 WTWEIGH2 ... WTWEIGH9   {txt}->   {res}WTWEIGH
+         AMPAMPL1 AMPAMPL2 ... AMPAMPL9   {txt}->   {res}AMPAMPL
+            REFERR1 REFERR2 ... REFERR9   {txt}->   {res}REFERR
+         AXLENLE1 AXLENLE2 ... AXLENLE9   {txt}->   {res}AXLENLE
+         LENSTHI1 LENSTHI2 ... LENSTHI9   {txt}->   {res}LENSTHI
+         SPECLES1 SPECLES2 ... SPECLES9   {txt}->   {res}SPECLES
+         RNFLRER1 RNFLRER2 ... RNFLRER9   {txt}->   {res}RNFLRER
+         ENDLLER1 ENDLLER2 ... ENDLLER9   {txt}->   {res}ENDLLER
+         DILATRE1 DILATRE2 ... DILATRE9   {txt}->   {res}DILATRE
+         DILATLE1 DILATLE2 ... DILATLE9   {txt}->   {res}DILATLE
+         CLOSWRK1 CLOSWRK2 ... CLOSWRK9   {txt}->   {res}CLOSWRK
+         WATCHTV1 WATCHTV2 ... WATCHTV9   {txt}->   {res}WATCHTV
+         COMPMON1 COMPMON2 ... COMPMON9   {txt}->   {res}COMPMON
+         COMPTUE1 COMPTUE2 ... COMPTUE9   {txt}->   {res}COMPTUE
+         COMPWED1 COMPWED2 ... COMPWED9   {txt}->   {res}COMPWED
+         COMPFRI1 COMPFRI2 ... COMPFRI9   {txt}->   {res}COMPFRI
+         COMPSAT1 COMPSAT2 ... COMPSAT9   {txt}->   {res}COMPSAT
+         COMPSUN1 COMPSUN2 ... COMPSUN9   {txt}->   {res}COMPSUN
+         TWINNOT1 TWINNOT2 ... TWINNOT9   {txt}->   {res}TWINNOT
+         GENDERG1 GENDERG2 ... GENDERG9   {txt}->   {res}GENDERG
+         BIRTHOR1 BIRTHOR2 ... BIRTHOR9   {txt}->   {res}BIRTHOR
+         BIRTHWT1 BIRTHWT2 ... BIRTHWT9   {txt}->   {res}BIRTHWT
+         WEARSPE1 WEARSPE2 ... WEARSPE9   {txt}->   {res}WEARSPE
+         CONSENT1 CONSENT2 ... CONSENT9   {txt}->   {res}CONSENT
+         TEACHFR1 TEACHFR2 ... TEACHFR9   {txt}->   {res}TEACHFR
+         PARENTO1 PARENTO2 ... PARENTO9   {txt}->   {res}PARENTO
+         VISACDR1 VISACDR2 ... VISACDR9   {txt}->   {res}VISACDR
+         VISACDL1 VISACDL2 ... VISACDL9   {txt}->   {res}VISACDL
+         VISACNR1 VISACNR2 ... VISACNR9   {txt}->   {res}VISACNR
+         VISACNL1 VISACNL2 ... VISACNL9   {txt}->   {res}VISACNL
+         IOPLEIO1 IOPLEIO2 ... IOPLEIO9   {txt}->   {res}IOPLEIO
+         REFSPHR1 REFSPHR2 ... REFSPHR9   {txt}->   {res}REFSPHR
+         REFSPHL1 REFSPHL2 ... REFSPHL9   {txt}->   {res}REFSPHL
+         REFCYLR1 REFCYLR2 ... REFCYLR9   {txt}->   {res}REFCYLR
+         REFCYLL1 REFCYLL2 ... REFCYLL9   {txt}->   {res}REFCYLL
+         REFCYLA1 REFCYLA2 ... REFCYLA9   {txt}->   {res}REFCYLA
+         PHYFACI1 PHYFACI2 ... PHYFACI9   {txt}->   {res}PHYFACI
+         KERATON1 KERATON2 ... KERATON9   {txt}->   {res}KERATON
+         KERATOD1 KERATOD2 ... KERATOD9   {txt}->   {res}KERATOD
+         KERAREA1 KERAREA2 ... KERAREA9   {txt}->   {res}KERAREA
+         KERALEA1 KERALEA2 ... KERALEA9   {txt}->   {res}KERALEA
+         PLAYGAM1 PLAYGAM2 ... PLAYGAM9   {txt}->   {res}PLAYGAM
+         PLAYGAT1 PLAYGAT2 ... PLAYGAT9   {txt}->   {res}PLAYGAT
+         PLAYGAW1 PLAYGAW2 ... PLAYGAW9   {txt}->   {res}PLAYGAW
+         PLAYGAF1 PLAYGAF2 ... PLAYGAF9   {txt}->   {res}PLAYGAF
+         PLAYGAS1 PLAYGAS2 ... PLAYGAS9   {txt}->   {res}PLAYGAS
+         OUTDORM1 OUTDORM2 ... OUTDORM9   {txt}->   {res}OUTDORM
+         OUTDORT1 OUTDORT2 ... OUTDORT9   {txt}->   {res}OUTDORT
+         OUTDORF1 OUTDORF2 ... OUTDORF9   {txt}->   {res}OUTDORF
+         OUTDORS1 OUTDORS2 ... OUTDORS9   {txt}->   {res}OUTDORS
+         COMPTHR1 COMPTHR2 ... COMPTHR9   {txt}->   {res}COMPTHR
+         RECYLAX1 RECYLAX2 ... RECYLAX9   {txt}->   {res}RECYLAX
+                        ub1 ub2 ... ub9   {txt}->   {res}ub
+               iodfd1 iodfd2 ... iodfd9   {txt}->   {res}iodfd
+               iodmp1 iodmp2 ... iodmp9   {txt}->   {res}iodmp
+{txt}{hline 77}
+
+{com}. ed
+
+. dis 9*333
+{res}2997
+
+{com}. dis 9*196
+{res}1764
+
+{com}. dis 9*37
+{res}333
+
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", clear
+
+. reshape long AXLENRE ANTCHAM SPECRES IOPREIO CORNEAL HTHEIGH WTWEIGH AMPAMPL REFERR AXLENLE LENSTHI SPECLES RNFLRER ENDLLER DILATRE DILATLE CLOSWRK WATCHTV COMPMON COMPTUE COMPWED COMPFRI COMPSAT COMPSUN TWINNOT GENDERG BIRTHOR BIRTHWT WEARSPE CONSENT   TEACHFR PARENTO VISACDR VISACDL VISACNR VISACNL IOPLEIO REFSPHR REFSPHL REFCYLR REFCYLL REFCYLA PHYFACI KERATON KERATOD KERAREA KERALEA PLAYGAM PLAYGAT PLAYGAW PLAYGAF PLAYGAS OUTDORM OUTDORT OUTDORF OUTDORS COMPTHR RECYLAX , i(studyno ) j(twins)
+{txt}(note: j = 1 2 3 4 5 6 7 8 9)
+(note: SPECRES1 not found)
+(note: HTHEIGH1 not found)
+(note: WTWEIGH1 not found)
+(note: SPECLES1 not found)
+(note: RNFLRER1 not found)
+(note: ENDLLER1 not found)
+(note: GENDERG1 not found)
+(note: BIRTHWT1 not found)
+(note: PHYFACI1 not found)
+(note: SPECRES2 not found)
+(note: HTHEIGH2 not found)
+(note: WTWEIGH2 not found)
+(note: REFERR2 not found)
+(note: SPECLES2 not found)
+(note: RNFLRER2 not found)
+(note: ENDLLER2 not found)
+(note: TWINNOT2 not found)
+(note: GENDERG2 not found)
+(note: BIRTHOR2 not found)
+(note: WEARSPE2 not found)
+(note: CONSENT2 not found)
+(note: TEACHFR2 not found)
+(note: PARENTO2 not found)
+(note: VISACDR2 not found)
+(note: VISACDL2 not found)
+(note: VISACNR2 not found)
+(note: VISACNL2 not found)
+(note: REFCYLA2 not found)
+(note: PHYFACI2 not found)
+(note: KERAREA2 not found)
+(note: KERALEA2 not found)
+(note: PLAYGAM2 not found)
+(note: PLAYGAW2 not found)
+(note: PLAYGAF2 not found)
+(note: OUTDORM2 not found)
+(note: OUTDORF2 not found)
+(note: COMPTHR2 not found)
+(note: RECYLAX2 not found)
+(note: AXLENRE3 not found)
+(note: ANTCHAM3 not found)
+(note: SPECRES3 not found)
+(note: IOPREIO3 not found)
+(note: CORNEAL3 not found)
+(note: HTHEIGH3 not found)
+(note: WTWEIGH3 not found)
+(note: AMPAMPL3 not found)
+(note: REFERR3 not found)
+(note: AXLENLE3 not found)
+(note: SPECLES3 not found)
+(note: RNFLRER3 not found)
+(note: ENDLLER3 not found)
+(note: DILATRE3 not found)
+(note: DILATLE3 not found)
+(note: COMPMON3 not found)
+(note: COMPTUE3 not found)
+(note: COMPWED3 not found)
+(note: COMPFRI3 not found)
+(note: COMPSAT3 not found)
+(note: COMPSUN3 not found)
+(note: TWINNOT3 not found)
+(note: GENDERG3 not found)
+(note: BIRTHOR3 not found)
+(note: BIRTHWT3 not found)
+(note: WEARSPE3 not found)
+(note: CONSENT3 not found)
+(note: TEACHFR3 not found)
+(note: PARENTO3 not found)
+(note: VISACDR3 not found)
+(note: VISACDL3 not found)
+(note: VISACNR3 not found)
+(note: VISACNL3 not found)
+(note: IOPLEIO3 not found)
+(note: REFCYLA3 not found)
+(note: PHYFACI3 not found)
+(note: KERATON3 not found)
+(note: KERATOD3 not found)
+(note: KERAREA3 not found)
+(note: KERALEA3 not found)
+(note: PLAYGAM3 not found)
+(note: PLAYGAT3 not found)
+(note: PLAYGAW3 not found)
+(note: PLAYGAF3 not found)
+(note: PLAYGAS3 not found)
+(note: OUTDORM3 not found)
+(note: OUTDORT3 not found)
+(note: OUTDORF3 not found)
+(note: OUTDORS3 not found)
+(note: COMPTHR3 not found)
+(note: RECYLAX3 not found)
+(note: AXLENRE4 not found)
+(note: ANTCHAM4 not found)
+(note: SPECRES4 not found)
+(note: IOPREIO4 not found)
+(note: CORNEAL4 not found)
+(note: HTHEIGH4 not found)
+(note: WTWEIGH4 not found)
+(note: AMPAMPL4 not found)
+(note: REFERR4 not found)
+(note: AXLENLE4 not found)
+(note: LENSTHI4 not found)
+(note: SPECLES4 not found)
+(note: RNFLRER4 not found)
+(note: ENDLLER4 not found)
+(note: DILATRE4 not found)
+(note: DILATLE4 not found)
+(note: COMPMON4 not found)
+(note: COMPTUE4 not found)
+(note: COMPWED4 not found)
+(note: COMPFRI4 not found)
+(note: COMPSAT4 not found)
+(note: COMPSUN4 not found)
+(note: TWINNOT4 not found)
+(note: GENDERG4 not found)
+(note: BIRTHOR4 not found)
+(note: BIRTHWT4 not found)
+(note: WEARSPE4 not found)
+(note: CONSENT4 not found)
+(note: TEACHFR4 not found)
+(note: PARENTO4 not found)
+(note: VISACDR4 not found)
+(note: VISACDL4 not found)
+(note: VISACNR4 not found)
+(note: VISACNL4 not found)
+(note: IOPLEIO4 not found)
+(note: REFSPHR4 not found)
+(note: REFSPHL4 not found)
+(note: REFCYLR4 not found)
+(note: REFCYLL4 not found)
+(note: REFCYLA4 not found)
+(note: PHYFACI4 not found)
+(note: KERATON4 not found)
+(note: KERATOD4 not found)
+(note: KERAREA4 not found)
+(note: KERALEA4 not found)
+(note: PLAYGAM4 not found)
+(note: PLAYGAT4 not found)
+(note: PLAYGAW4 not found)
+(note: PLAYGAF4 not found)
+(note: PLAYGAS4 not found)
+(note: OUTDORM4 not found)
+(note: OUTDORT4 not found)
+(note: OUTDORF4 not found)
+(note: OUTDORS4 not found)
+(note: COMPTHR4 not found)
+(note: RECYLAX4 not found)
+(note: AXLENRE5 not found)
+(note: ANTCHAM5 not found)
+(note: SPECRES5 not found)
+(note: IOPREIO5 not found)
+(note: CORNEAL5 not found)
+(note: HTHEIGH5 not found)
+(note: WTWEIGH5 not found)
+(note: AMPAMPL5 not found)
+(note: REFERR5 not found)
+(note: AXLENLE5 not found)
+(note: LENSTHI5 not found)
+(note: SPECLES5 not found)
+(note: RNFLRER5 not found)
+(note: ENDLLER5 not found)
+(note: DILATRE5 not found)
+(note: DILATLE5 not found)
+(note: COMPMON5 not found)
+(note: COMPTUE5 not found)
+(note: COMPWED5 not found)
+(note: COMPFRI5 not found)
+(note: COMPSAT5 not found)
+(note: COMPSUN5 not found)
+(note: TWINNOT5 not found)
+(note: GENDERG5 not found)
+(note: BIRTHOR5 not found)
+(note: BIRTHWT5 not found)
+(note: WEARSPE5 not found)
+(note: CONSENT5 not found)
+(note: TEACHFR5 not found)
+(note: PARENTO5 not found)
+(note: VISACDR5 not found)
+(note: VISACDL5 not found)
+(note: VISACNR5 not found)
+(note: VISACNL5 not found)
+(note: IOPLEIO5 not found)
+(note: REFSPHR5 not found)
+(note: REFSPHL5 not found)
+(note: REFCYLR5 not found)
+(note: REFCYLL5 not found)
+(note: REFCYLA5 not found)
+(note: PHYFACI5 not found)
+(note: KERATON5 not found)
+(note: KERATOD5 not found)
+(note: KERAREA5 not found)
+(note: KERALEA5 not found)
+(note: PLAYGAM5 not found)
+(note: PLAYGAT5 not found)
+(note: PLAYGAW5 not found)
+(note: PLAYGAF5 not found)
+(note: PLAYGAS5 not found)
+(note: OUTDORM5 not found)
+(note: OUTDORT5 not found)
+(note: OUTDORF5 not found)
+(note: OUTDORS5 not found)
+(note: COMPTHR5 not found)
+(note: RECYLAX5 not found)
+(note: AXLENRE6 not found)
+(note: ANTCHAM6 not found)
+(note: SPECRES6 not found)
+(note: IOPREIO6 not found)
+(note: CORNEAL6 not found)
+(note: HTHEIGH6 not found)
+(note: WTWEIGH6 not found)
+(note: AMPAMPL6 not found)
+(note: REFERR6 not found)
+(note: AXLENLE6 not found)
+(note: LENSTHI6 not found)
+(note: SPECLES6 not found)
+(note: RNFLRER6 not found)
+(note: ENDLLER6 not found)
+(note: DILATRE6 not found)
+(note: DILATLE6 not found)
+(note: COMPMON6 not found)
+(note: COMPTUE6 not found)
+(note: COMPWED6 not found)
+(note: COMPFRI6 not found)
+(note: COMPSAT6 not found)
+(note: COMPSUN6 not found)
+(note: TWINNOT6 not found)
+(note: GENDERG6 not found)
+(note: BIRTHOR6 not found)
+(note: BIRTHWT6 not found)
+(note: WEARSPE6 not found)
+(note: CONSENT6 not found)
+(note: TEACHFR6 not found)
+(note: PARENTO6 not found)
+(note: VISACDR6 not found)
+(note: VISACDL6 not found)
+(note: VISACNR6 not found)
+(note: VISACNL6 not found)
+(note: IOPLEIO6 not found)
+(note: REFSPHR6 not found)
+(note: REFSPHL6 not found)
+(note: REFCYLR6 not found)
+(note: REFCYLL6 not found)
+(note: REFCYLA6 not found)
+(note: PHYFACI6 not found)
+(note: KERATON6 not found)
+(note: KERATOD6 not found)
+(note: KERAREA6 not found)
+(note: KERALEA6 not found)
+(note: PLAYGAM6 not found)
+(note: PLAYGAT6 not found)
+(note: PLAYGAW6 not found)
+(note: PLAYGAF6 not found)
+(note: PLAYGAS6 not found)
+(note: OUTDORM6 not found)
+(note: OUTDORT6 not found)
+(note: OUTDORF6 not found)
+(note: OUTDORS6 not found)
+(note: COMPTHR6 not found)
+(note: RECYLAX6 not found)
+(note: AXLENRE7 not found)
+(note: ANTCHAM7 not found)
+(note: SPECRES7 not found)
+(note: IOPREIO7 not found)
+(note: CORNEAL7 not found)
+(note: HTHEIGH7 not found)
+(note: WTWEIGH7 not found)
+(note: AMPAMPL7 not found)
+(note: REFERR7 not found)
+(note: AXLENLE7 not found)
+(note: LENSTHI7 not found)
+(note: SPECLES7 not found)
+(note: RNFLRER7 not found)
+(note: ENDLLER7 not found)
+(note: DILATRE7 not found)
+(note: DILATLE7 not found)
+(note: COMPMON7 not found)
+(note: COMPTUE7 not found)
+(note: COMPWED7 not found)
+(note: COMPFRI7 not found)
+(note: COMPSAT7 not found)
+(note: COMPSUN7 not found)
+(note: TWINNOT7 not found)
+(note: GENDERG7 not found)
+(note: BIRTHOR7 not found)
+(note: BIRTHWT7 not found)
+(note: WEARSPE7 not found)
+(note: CONSENT7 not found)
+(note: TEACHFR7 not found)
+(note: PARENTO7 not found)
+(note: VISACDR7 not found)
+(note: VISACDL7 not found)
+(note: VISACNR7 not found)
+(note: VISACNL7 not found)
+(note: IOPLEIO7 not found)
+(note: REFSPHR7 not found)
+(note: REFSPHL7 not found)
+(note: REFCYLR7 not found)
+(note: REFCYLL7 not found)
+(note: REFCYLA7 not found)
+(note: PHYFACI7 not found)
+(note: KERATON7 not found)
+(note: KERATOD7 not found)
+(note: KERAREA7 not found)
+(note: KERALEA7 not found)
+(note: PLAYGAM7 not found)
+(note: PLAYGAT7 not found)
+(note: PLAYGAW7 not found)
+(note: PLAYGAF7 not found)
+(note: PLAYGAS7 not found)
+(note: OUTDORM7 not found)
+(note: OUTDORT7 not found)
+(note: OUTDORF7 not found)
+(note: OUTDORS7 not found)
+(note: COMPTHR7 not found)
+(note: RECYLAX7 not found)
+(note: AXLENRE8 not found)
+(note: ANTCHAM8 not found)
+(note: SPECRES8 not found)
+(note: IOPREIO8 not found)
+(note: CORNEAL8 not found)
+(note: HTHEIGH8 not found)
+(note: WTWEIGH8 not found)
+(note: AMPAMPL8 not found)
+(note: REFERR8 not found)
+(note: AXLENLE8 not found)
+(note: LENSTHI8 not found)
+(note: SPECLES8 not found)
+(note: RNFLRER8 not found)
+(note: ENDLLER8 not found)
+(note: DILATRE8 not found)
+(note: DILATLE8 not found)
+(note: COMPMON8 not found)
+(note: COMPTUE8 not found)
+(note: COMPWED8 not found)
+(note: COMPFRI8 not found)
+(note: COMPSAT8 not found)
+(note: COMPSUN8 not found)
+(note: TWINNOT8 not found)
+(note: GENDERG8 not found)
+(note: BIRTHOR8 not found)
+(note: BIRTHWT8 not found)
+(note: WEARSPE8 not found)
+(note: CONSENT8 not found)
+(note: TEACHFR8 not found)
+(note: PARENTO8 not found)
+(note: VISACDR8 not found)
+(note: VISACDL8 not found)
+(note: VISACNR8 not found)
+(note: VISACNL8 not found)
+(note: IOPLEIO8 not found)
+(note: REFSPHR8 not found)
+(note: REFSPHL8 not found)
+(note: REFCYLR8 not found)
+(note: REFCYLL8 not found)
+(note: REFCYLA8 not found)
+(note: PHYFACI8 not found)
+(note: KERATON8 not found)
+(note: KERATOD8 not found)
+(note: KERAREA8 not found)
+(note: KERALEA8 not found)
+(note: PLAYGAM8 not found)
+(note: PLAYGAT8 not found)
+(note: PLAYGAW8 not found)
+(note: PLAYGAF8 not found)
+(note: PLAYGAS8 not found)
+(note: OUTDORM8 not found)
+(note: OUTDORT8 not found)
+(note: OUTDORF8 not found)
+(note: OUTDORS8 not found)
+(note: COMPTHR8 not found)
+(note: RECYLAX8 not found)
+(note: AXLENRE9 not found)
+(note: ANTCHAM9 not found)
+(note: SPECRES9 not found)
+(note: IOPREIO9 not found)
+(note: CORNEAL9 not found)
+(note: HTHEIGH9 not found)
+(note: WTWEIGH9 not found)
+(note: AMPAMPL9 not found)
+(note: REFERR9 not found)
+(note: AXLENLE9 not found)
+(note: LENSTHI9 not found)
+(note: SPECLES9 not found)
+(note: RNFLRER9 not found)
+(note: ENDLLER9 not found)
+(note: DILATRE9 not found)
+(note: DILATLE9 not found)
+(note: COMPMON9 not found)
+(note: COMPTUE9 not found)
+(note: COMPWED9 not found)
+(note: COMPFRI9 not found)
+(note: COMPSAT9 not found)
+(note: COMPSUN9 not found)
+(note: TWINNOT9 not found)
+(note: GENDERG9 not found)
+(note: BIRTHOR9 not found)
+(note: BIRTHWT9 not found)
+(note: WEARSPE9 not found)
+(note: CONSENT9 not found)
+(note: TEACHFR9 not found)
+(note: PARENTO9 not found)
+(note: VISACDR9 not found)
+(note: VISACDL9 not found)
+(note: VISACNR9 not found)
+(note: VISACNL9 not found)
+(note: IOPLEIO9 not found)
+(note: REFSPHR9 not found)
+(note: REFSPHL9 not found)
+(note: REFCYLR9 not found)
+(note: REFCYLL9 not found)
+(note: REFCYLA9 not found)
+(note: PHYFACI9 not found)
+(note: KERATON9 not found)
+(note: KERATOD9 not found)
+(note: KERAREA9 not found)
+(note: KERALEA9 not found)
+(note: PLAYGAM9 not found)
+(note: PLAYGAT9 not found)
+(note: PLAYGAW9 not found)
+(note: PLAYGAF9 not found)
+(note: PLAYGAS9 not found)
+(note: OUTDORM9 not found)
+(note: OUTDORT9 not found)
+(note: OUTDORF9 not found)
+(note: OUTDORS9 not found)
+(note: COMPTHR9 not found)
+(note: RECYLAX9 not found)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}      37   {txt}->{res}     333
+{txt}Number of variables            {res}     240   {txt}->{res}     202
+{txt}j variable (9 values)                     ->   {res}twins
+{txt}xij variables:
+         {res}AXLENRE1 AXLENRE2 ... AXLENRE9   {txt}->   {res}AXLENRE
+         ANTCHAM1 ANTCHAM2 ... ANTCHAM9   {txt}->   {res}ANTCHAM
+         SPECRES1 SPECRES2 ... SPECRES9   {txt}->   {res}SPECRES
+         IOPREIO1 IOPREIO2 ... IOPREIO9   {txt}->   {res}IOPREIO
+         CORNEAL1 CORNEAL2 ... CORNEAL9   {txt}->   {res}CORNEAL
+         HTHEIGH1 HTHEIGH2 ... HTHEIGH9   {txt}->   {res}HTHEIGH
+         WTWEIGH1 WTWEIGH2 ... WTWEIGH9   {txt}->   {res}WTWEIGH
+         AMPAMPL1 AMPAMPL2 ... AMPAMPL9   {txt}->   {res}AMPAMPL
+            REFERR1 REFERR2 ... REFERR9   {txt}->   {res}REFERR
+         AXLENLE1 AXLENLE2 ... AXLENLE9   {txt}->   {res}AXLENLE
+         LENSTHI1 LENSTHI2 ... LENSTHI9   {txt}->   {res}LENSTHI
+         SPECLES1 SPECLES2 ... SPECLES9   {txt}->   {res}SPECLES
+         RNFLRER1 RNFLRER2 ... RNFLRER9   {txt}->   {res}RNFLRER
+         ENDLLER1 ENDLLER2 ... ENDLLER9   {txt}->   {res}ENDLLER
+         DILATRE1 DILATRE2 ... DILATRE9   {txt}->   {res}DILATRE
+         DILATLE1 DILATLE2 ... DILATLE9   {txt}->   {res}DILATLE
+         CLOSWRK1 CLOSWRK2 ... CLOSWRK9   {txt}->   {res}CLOSWRK
+         WATCHTV1 WATCHTV2 ... WATCHTV9   {txt}->   {res}WATCHTV
+         COMPMON1 COMPMON2 ... COMPMON9   {txt}->   {res}COMPMON
+         COMPTUE1 COMPTUE2 ... COMPTUE9   {txt}->   {res}COMPTUE
+         COMPWED1 COMPWED2 ... COMPWED9   {txt}->   {res}COMPWED
+         COMPFRI1 COMPFRI2 ... COMPFRI9   {txt}->   {res}COMPFRI
+         COMPSAT1 COMPSAT2 ... COMPSAT9   {txt}->   {res}COMPSAT
+         COMPSUN1 COMPSUN2 ... COMPSUN9   {txt}->   {res}COMPSUN
+         TWINNOT1 TWINNOT2 ... TWINNOT9   {txt}->   {res}TWINNOT
+         GENDERG1 GENDERG2 ... GENDERG9   {txt}->   {res}GENDERG
+         BIRTHOR1 BIRTHOR2 ... BIRTHOR9   {txt}->   {res}BIRTHOR
+         BIRTHWT1 BIRTHWT2 ... BIRTHWT9   {txt}->   {res}BIRTHWT
+         WEARSPE1 WEARSPE2 ... WEARSPE9   {txt}->   {res}WEARSPE
+         CONSENT1 CONSENT2 ... CONSENT9   {txt}->   {res}CONSENT
+         TEACHFR1 TEACHFR2 ... TEACHFR9   {txt}->   {res}TEACHFR
+         PARENTO1 PARENTO2 ... PARENTO9   {txt}->   {res}PARENTO
+         VISACDR1 VISACDR2 ... VISACDR9   {txt}->   {res}VISACDR
+         VISACDL1 VISACDL2 ... VISACDL9   {txt}->   {res}VISACDL
+         VISACNR1 VISACNR2 ... VISACNR9   {txt}->   {res}VISACNR
+         VISACNL1 VISACNL2 ... VISACNL9   {txt}->   {res}VISACNL
+         IOPLEIO1 IOPLEIO2 ... IOPLEIO9   {txt}->   {res}IOPLEIO
+         REFSPHR1 REFSPHR2 ... REFSPHR9   {txt}->   {res}REFSPHR
+         REFSPHL1 REFSPHL2 ... REFSPHL9   {txt}->   {res}REFSPHL
+         REFCYLR1 REFCYLR2 ... REFCYLR9   {txt}->   {res}REFCYLR
+         REFCYLL1 REFCYLL2 ... REFCYLL9   {txt}->   {res}REFCYLL
+         REFCYLA1 REFCYLA2 ... REFCYLA9   {txt}->   {res}REFCYLA
+         PHYFACI1 PHYFACI2 ... PHYFACI9   {txt}->   {res}PHYFACI
+         KERATON1 KERATON2 ... KERATON9   {txt}->   {res}KERATON
+         KERATOD1 KERATOD2 ... KERATOD9   {txt}->   {res}KERATOD
+         KERAREA1 KERAREA2 ... KERAREA9   {txt}->   {res}KERAREA
+         KERALEA1 KERALEA2 ... KERALEA9   {txt}->   {res}KERALEA
+         PLAYGAM1 PLAYGAM2 ... PLAYGAM9   {txt}->   {res}PLAYGAM
+         PLAYGAT1 PLAYGAT2 ... PLAYGAT9   {txt}->   {res}PLAYGAT
+         PLAYGAW1 PLAYGAW2 ... PLAYGAW9   {txt}->   {res}PLAYGAW
+         PLAYGAF1 PLAYGAF2 ... PLAYGAF9   {txt}->   {res}PLAYGAF
+         PLAYGAS1 PLAYGAS2 ... PLAYGAS9   {txt}->   {res}PLAYGAS
+         OUTDORM1 OUTDORM2 ... OUTDORM9   {txt}->   {res}OUTDORM
+         OUTDORT1 OUTDORT2 ... OUTDORT9   {txt}->   {res}OUTDORT
+         OUTDORF1 OUTDORF2 ... OUTDORF9   {txt}->   {res}OUTDORF
+         OUTDORS1 OUTDORS2 ... OUTDORS9   {txt}->   {res}OUTDORS
+         COMPTHR1 COMPTHR2 ... COMPTHR9   {txt}->   {res}COMPTHR
+         RECYLAX1 RECYLAX2 ... RECYLAX9   {txt}->   {res}RECYLAX
+{txt}{hline 77}
+
+{com}. ed
+
+. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\merge_twin_study_37.dta", clear
+
+. ed
+
+. ed B*
+
+. ed  W* B*
+
+. ed  W* B*
+
+. ed
+
+. ed
+
+. replace WATCHTVF =   in 1
+{err}in not found
+{txt}{search r(111):r(111);}
+
+{com}. ed
+
+. ed  W* B*
+
+. ed  W* B* H*
+
+. ed wt ht
+
+. ed
+
+. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta"
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta saved
+
+{com}. ed
+
+. ren ANTCHAMR ANTCHAMR1
+{res}
+{com}. ren ANTCHAML ANTCHAML2
+{res}
+{com}. ren SPECRE1S SPECRES1
+{res}
+{com}. ren SPECRE2S SPECRES2
+{res}
+{com}. ed SPECLE1S SPECLES1
+{err}variable {bf}SPECLES1{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. ren SPECLE1S SPECLES1
+{res}
+{com}. ren SPECLE2S SPECLES2
+{res}
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta saved
+
+{com}. ren RNFLRE1R RNFLRER1
+{res}
+{com}. clear
+
+. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+
+. ed
+
+. ren RNFLRE1R RNFLRER1
+{res}
+{com}. ren RNFLRE2R RNFLRER2
+{res}
+{com}. ren ENDLLE1R ENDLLER1
+{res}
+{com}. ren ENDLLE2R ENDLLER2
+{res}
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta saved
+
+{com}. des
+
+{txt}Contains data from {res}C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta
+{txt}  obs:{res}            37                          
+{txt} vars:{res}           240                          25 Jul 2022 19:30
+{txt} size:{res}        27,528                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:FAMCLUSN       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}FAMCLUSN{p_end}
+{p 0 48}{bind:studyno        }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}studyno{p_end}
+{p 0 48}{bind:AXLENRE1       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}AXLENRE1{p_end}
+{p 0 48}{bind:AXLENRE2       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}AXLENRE2{p_end}
+{p 0 48}{bind:ANTCHAMR1      }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAMR{p_end}
+{p 0 48}{bind:ANTCHAM1       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAM1{p_end}
+{p 0 48}{bind:SPECRES1       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}SPECRE1S{p_end}
+{p 0 48}{bind:SPECRES2       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}SPECRE2S{p_end}
+{p 0 48}{bind:GENTWIN        }{txt}{bind: str4    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}GENTWIN{p_end}
+{p 0 48}{bind:IOPREIO1       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}IOPRE1IO{p_end}
+{p 0 48}{bind:IOPREIO2       }{txt}{bind: byte    }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}IOPRE2IO{p_end}
+{p 0 48}{bind:LENSTHIRE2     }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}LENSTHIRE2{p_end}
+{p 0 48}{bind:ANTCHAM2       }{txt}{bind: double  }{bind:{txt}%14.2fc   }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAM2{p_end}
+{p 0 48}{bind:CORNEAL1       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}CORNEAL1{p_end}
+{p 0 48}{bind:CORNEAL2       }{txt}{bind: int     }{bind:{txt}%10.0gc   }{space 1}{bind:         }{bind:  }{res}{res}CORNEAL2{p_end}
+{p 0 48}{bind:Zygo_PP        }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}Zygo_PP{p_end}
+{p 0 48}{bind:HT1HEIGH       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}HT1HEIGH{p_end}
+{p 0 48}{bind:WT1WEIGH       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WT1WEIGH{p_end}
+{p 0 48}{bind:FIRSTSAW       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FIRSTSAW{p_end}
+{p 0 48}{bind:TEACHFRN       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}TEACHFRN{p_end}
+{p 0 48}{bind:PARENTOT       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PARENTOT{p_end}
+{p 0 48}{bind:FRATEROR       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FRATEROR{p_end}
+{p 0 48}{bind:VISACDRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDRE{p_end}
+{p 0 48}{bind:VISACDLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDLE{p_end}
+{p 0 48}{bind:VISACNRE       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNRE{p_end}
+{p 0 48}{bind:VISACNLE       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNLE{p_end}
+{p 0 48}{bind:STEACUT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}STEACUT1{p_end}
+{p 0 48}{bind:AMPAMPL1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AMP1AMPL{p_end}
+{p 0 48}{bind:REFSPHRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHRE{p_end}
+{p 0 48}{bind:REFSPHLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHLE{p_end}
+{p 0 48}{bind:REFCYLRE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLRE{p_end}
+{p 0 48}{bind:REFCYLLE       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLLE{p_end}
+{p 0 48}{bind:REFCYLAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLAX{p_end}
+{p 0 48}{bind:REFERR1        }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}REFERR1{p_end}
+{p 0 48}{bind:AXLENLE1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AXLENLE1{p_end}
+{p 0 48}{bind:LENSTHIC       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHIC{p_end}
+{p 0 48}{bind:LENSTHI1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHI1{p_end}
+{p 0 48}{bind:ANTCHAML2      }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ANTCHAML{p_end}
+{p 0 48}{bind:CORNEALR       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CORNEALR{p_end}
+{p 0 48}{bind:CORNEALL       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CORNEALL{p_end}
+{p 0 48}{bind:KERATONR       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATONR{p_end}
+{p 0 48}{bind:KERATODR       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATODR{p_end}
+{p 0 48}{bind:KERAREAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERAREAX{p_end}
+{p 0 48}{bind:KERATONL       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATONL{p_end}
+{p 0 48}{bind:KERATODL       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATODL{p_end}
+{p 0 48}{bind:KERALEAX       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERALEAX{p_end}
+{p 0 48}{bind:SPECLES1       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}SPECLE1S{p_end}
+{p 0 48}{bind:RNFLRER1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}RNFLRE1R{p_end}
+{p 0 48}{bind:ENDLLER1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ENDLLE1R{p_end}
+{p 0 48}{bind:DILATRE1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}DILATRE1{p_end}
+{p 0 48}{bind:DILATLE1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}DILATLE1{p_end}
+{p 0 48}{bind:CLOSWRKM       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRKM{p_end}
+{p 0 48}{bind:CLOSWRKT       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRKT{p_end}
+{p 0 48}{bind:CLOSWRKW       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRKW{p_end}
+{p 0 48}{bind:CLOSWRK1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK1{p_end}
+{p 0 48}{bind:CLOSWRKF       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRKF{p_end}
+{p 0 48}{bind:CLOSWRKS       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRKS{p_end}
+{p 0 48}{bind:CLOSWRK2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK2{p_end}
+{p 0 48}{bind:WATCHTVM       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTVM{p_end}
+{p 0 48}{bind:WATCHTVT       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTVT{p_end}
+{p 0 48}{bind:WATCHTVW       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTVW{p_end}
+{p 0 48}{bind:WATCHTV1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV1{p_end}
+{p 0 48}{bind:WATCHTVF       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTVF{p_end}
+{p 0 48}{bind:WATCHTVS       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTVS{p_end}
+{p 0 48}{bind:WATCHTV2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV2{p_end}
+{p 0 48}{bind:PLAYGAMO       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAMO{p_end}
+{p 0 48}{bind:PLAYGATU       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGATU{p_end}
+{p 0 48}{bind:PLAYGAWE       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAWE{p_end}
+{p 0 48}{bind:PLAYGATH       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGATH{p_end}
+{p 0 48}{bind:PLAYGAFR       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAFR{p_end}
+{p 0 48}{bind:PLAYGASA       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGASA{p_end}
+{p 0 48}{bind:PLAYGASU       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGASU{p_end}
+{p 0 48}{bind:OUTDORMO       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORMO{p_end}
+{p 0 48}{bind:OUTDORTU       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORTU{p_end}
+{p 0 48}{bind:OUTDORWE       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORWE{p_end}
+{p 0 48}{bind:OUTDORTH       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORTH{p_end}
+{p 0 48}{bind:OUTDORFR       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORFR{p_end}
+{p 0 48}{bind:OUTDORSA       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORSA{p_end}
+{p 0 48}{bind:OUTDORSU       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORSU{p_end}
+{p 0 48}{bind:COMPMON1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPMON1{p_end}
+{p 0 48}{bind:COMPTUE1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPTUE1{p_end}
+{p 0 48}{bind:COMPWED1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPWED1{p_end}
+{p 0 48}{bind:COMPTHRS       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPTHRS{p_end}
+{p 0 48}{bind:COMPFRI1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPFRI1{p_end}
+{p 0 48}{bind:COMPSAT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPSAT1{p_end}
+{p 0 48}{bind:COMPSUN1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPSUN1{p_end}
+{p 0 48}{bind:TWINNOT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}TWINNOT1{p_end}
+{p 0 48}{bind:NAME2NAM       }{txt}{bind: str15   }{bind:{txt}%15s      }{space 1}{bind:         }{bind:  }{res}{res}NAME2NAM{p_end}
+{p 0 48}{bind:GENDER1G       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}GENDER1G{p_end}
+{p 0 48}{bind:GENDER2G       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}GENDER2G{p_end}
+{p 0 48}{bind:BIRTHOR1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}BIRTHOR1{p_end}
+{p 0 48}{bind:BIRTHWT2       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}BIRTHWT2{p_end}
+{p 0 48}{bind:WEARSPE1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WEARSPE1{p_end}
+{p 0 48}{bind:CONSENT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CONSENT1{p_end}
+{p 0 48}{bind:HT2HEIGH       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}HT2HEIGH{p_end}
+{p 0 48}{bind:WT2WEIGH       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WT2WEIGH{p_end}
+{p 0 48}{bind:FIRSTSA1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FIRSTSA1{p_end}
+{p 0 48}{bind:TEACHFR1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}TEACHFR1{p_end}
+{p 0 48}{bind:PARENTO1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PARENTO1{p_end}
+{p 0 48}{bind:FRATERO1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}FRATERO1{p_end}
+{p 0 48}{bind:VISACDR1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDR1{p_end}
+{p 0 48}{bind:VISACDL1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}VISACDL1{p_end}
+{p 0 48}{bind:VISACNR1       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNR1{p_end}
+{p 0 48}{bind:VISACNL1       }{txt}{bind: str2    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}VISACNL1{p_end}
+{p 0 48}{bind:STEACUT2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}STEACUT2{p_end}
+{p 0 48}{bind:AMPAMPL2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AMP2AMPL{p_end}
+{p 0 48}{bind:IOPLEIO1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}IOPLE1IO{p_end}
+{p 0 48}{bind:IOPLEIO2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}IOPLE2IO{p_end}
+{p 0 48}{bind:REFSPHR1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHR1{p_end}
+{p 0 48}{bind:REFSPHL1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHL1{p_end}
+{p 0 48}{bind:REFSPHAX       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHAX{p_end}
+{p 0 48}{bind:REFCYLR1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLR1{p_end}
+{p 0 48}{bind:REFCYLL1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLL1{p_end}
+{p 0 48}{bind:REFCYLA1       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLA1{p_end}
+{p 0 48}{bind:gender         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}gender{p_end}
+{p 0 48}{bind:sex            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}sex{p_end}
+{p 0 48}{bind:PHY1FACI       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PHY1FACI{p_end}
+{p 0 48}{bind:PHY2FACI       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PHY2FACI{p_end}
+{p 0 48}{bind:zygos          }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}zygos{p_end}
+{p 0 48}{bind:AXLENLE2       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}AXLENLE2{p_end}
+{p 0 48}{bind:LENSTHI2       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHI2{p_end}
+{p 0 48}{bind:LENSTHI3       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}LENSTHI3{p_end}
+{p 0 48}{bind:KERATON1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATON1{p_end}
+{p 0 48}{bind:KERATOD1       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATOD1{p_end}
+{p 0 48}{bind:KERAREA1       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERAREA1{p_end}
+{p 0 48}{bind:KERATON2       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATON2{p_end}
+{p 0 48}{bind:KERATOD2       }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERATOD2{p_end}
+{p 0 48}{bind:KERALEA1       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}KERALEA1{p_end}
+{p 0 48}{bind:SPECLES2       }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}SPECLE2S{p_end}
+{p 0 48}{bind:RNFLRER2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}RNFLRE2R{p_end}
+{p 0 48}{bind:ENDLLER2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ENDLLE2R{p_end}
+{p 0 48}{bind:DILATRE2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}DILATRE2{p_end}
+{p 0 48}{bind:DILATLE2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}DILATLE2{p_end}
+{p 0 48}{bind:CLOSWRK3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK3{p_end}
+{p 0 48}{bind:CLOSWRK4       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK4{p_end}
+{p 0 48}{bind:CLOSWRK5       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK5{p_end}
+{p 0 48}{bind:CLOSWRK6       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK6{p_end}
+{p 0 48}{bind:CLOSWRK7       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK7{p_end}
+{p 0 48}{bind:CLOSWRK8       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK8{p_end}
+{p 0 48}{bind:CLOSWRK9       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}CLOSWRK9{p_end}
+{p 0 48}{bind:WATCHTV3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV3{p_end}
+{p 0 48}{bind:WATCHTV4       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV4{p_end}
+{p 0 48}{bind:WATCHTV5       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV5{p_end}
+{p 0 48}{bind:WATCHTV6       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV6{p_end}
+{p 0 48}{bind:WATCHTV7       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV7{p_end}
+{p 0 48}{bind:WATCHTV8       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV8{p_end}
+{p 0 48}{bind:WATCHTV9       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}WATCHTV9{p_end}
+{p 0 48}{bind:PLAYGAM1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAM1{p_end}
+{p 0 48}{bind:PLAYGAT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAT1{p_end}
+{p 0 48}{bind:PLAYGAW1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAW1{p_end}
+{p 0 48}{bind:PLAYGAT2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAT2{p_end}
+{p 0 48}{bind:PLAYGAF1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAF1{p_end}
+{p 0 48}{bind:PLAYGAS1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAS1{p_end}
+{p 0 48}{bind:PLAYGAS2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}PLAYGAS2{p_end}
+{p 0 48}{bind:OUTDORM1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORM1{p_end}
+{p 0 48}{bind:OUTDORT1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORT1{p_end}
+{p 0 48}{bind:OUTDORW1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORW1{p_end}
+{p 0 48}{bind:OUTDORT2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORT2{p_end}
+{p 0 48}{bind:OUTDORF1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORF1{p_end}
+{p 0 48}{bind:OUTDORS1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORS1{p_end}
+{p 0 48}{bind:OUTDORS2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}OUTDORS2{p_end}
+{p 0 48}{bind:COMPMON2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPMON2{p_end}
+{p 0 48}{bind:COMPTUE2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPTUE2{p_end}
+{p 0 48}{bind:COMPWED2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPWED2{p_end}
+{p 0 48}{bind:COMPTHR1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPTHR1{p_end}
+{p 0 48}{bind:COMPFRI2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPFRI2{p_end}
+{p 0 48}{bind:COMPSAT2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPSAT2{p_end}
+{p 0 48}{bind:COMPSUN2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}COMPSUN2{p_end}
+{p 0 48}{bind:REFSPHR2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHR2{p_end}
+{p 0 48}{bind:REFSPHL2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHL2{p_end}
+{p 0 48}{bind:REFCYLR2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLR2{p_end}
+{p 0 48}{bind:REFCYLL2       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLL2{p_end}
+{p 0 48}{bind:RECYLAXI       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}RECYLAXI{p_end}
+{p 0 48}{bind:REFSPHR3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHR3{p_end}
+{p 0 48}{bind:REFSPHL3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFSPHL3{p_end}
+{p 0 48}{bind:REFCYLR3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLR3{p_end}
+{p 0 48}{bind:REFCYLL3       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}REFCYLL3{p_end}
+{p 0 48}{bind:RECYLAX1       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}RECYLAX1{p_end}
+{p 0 48}{bind:agegroup       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}agegroup{p_end}
+{p 0 48}{bind:agegroup_new   }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}agegroup_new{p_end}
+{p 0 48}{bind:mhno           }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}mhno{p_end}
+{p 0 48}{bind:mage           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}mage{p_end}
+{p 0 48}{bind:fage           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}fage{p_end}
+{p 0 48}{bind:mn             }{txt}{bind: str20   }{bind:{txt}%20s      }{space 1}{bind:         }{bind:  }{res}{res}mn{p_end}
+{p 0 48}{bind:fn             }{txt}{bind: str17   }{bind:{txt}%17s      }{space 1}{bind:         }{bind:  }{res}{res}fn{p_end}
+{p 0 48}{bind:dno            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}dno{p_end}
+{p 0 48}{bind:st             }{txt}{bind: str33   }{bind:{txt}%33s      }{space 1}{bind:         }{bind:  }{res}{res}st{p_end}
+{p 0 48}{bind:area           }{txt}{bind: str20   }{bind:{txt}%20s      }{space 1}{bind:         }{bind:  }{res}{res}area{p_end}
+{p 0 48}{bind:place          }{txt}{bind: str30   }{bind:{txt}%30s      }{space 1}{bind:         }{bind:  }{res}{res}place{p_end}
+{p 0 48}{bind:dist           }{txt}{bind: str15   }{bind:{txt}%15s      }{space 1}{bind:         }{bind:  }{res}{res}dist{p_end}
+{p 0 48}{bind:state          }{txt}{bind: str9    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}state{p_end}
+{p 0 48}{bind:ar             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ar{p_end}
+{p 0 48}{bind:medu           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}medu{p_end}
+{p 0 48}{bind:fedu           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}fedu{p_end}
+{p 0 48}{bind:mocc           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}mocc{p_end}
+{p 0 48}{bind:focc           }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}focc{p_end}
+{p 0 48}{bind:rel            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}rel{p_end}
+{p 0 48}{bind:cons           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}cons{p_end}
+{p 0 48}{bind:gra            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}gra{p_end}
+{p 0 48}{bind:tlp            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}tlp{p_end}
+{p 0 48}{bind:tlpterm        }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}tlpterm{p_end}
+{p 0 48}{bind:tlplbw         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}tlplbw{p_end}
+{p 0 48}{bind:tlpbw          }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}tlpbw{p_end}
+{p 0 48}{bind:pv             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pv{p_end}
+{p 0 48}{bind:gaf            }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}gaf{p_end}
+{p 0 48}{bind:mh             }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}mh{p_end}
+{p 0 48}{bind:ht             }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ht{p_end}
+{p 0 48}{bind:wt             }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}wt{p_end}
+{p 0 48}{bind:gad            }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}gad{p_end}
+{p 0 48}{bind:sd             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}sd{p_end}
+{p 0 48}{bind:pis            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pis{p_end}
+{p 0 48}{bind:gd             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}gd{p_end}
+{p 0 48}{bind:pd             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pd{p_end}
+{p 0 48}{bind:eclam          }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}eclam{p_end}
+{p 0 48}{bind:pp             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pp{p_end}
+{p 0 48}{bind:pa             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pa{p_end}
+{p 0 48}{bind:ub1            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ub1{p_end}
+{p 0 48}{bind:ub2            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ub2{p_end}
+{p 0 48}{bind:ub3            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ub3{p_end}
+{p 0 48}{bind:aci            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}aci{p_end}
+{p 0 48}{bind:chor           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}chor{p_end}
+{p 0 48}{bind:subtype        }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}subtype{p_end}
+{p 0 48}{bind:zygosity       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}zygosity{p_end}
+{p 0 48}{bind:dob            }{txt}{bind: int     }{bind:{txt}%td       }{space 1}{bind:         }{bind:  }{res}{res}dob{p_end}
+{p 0 48}{bind:lo             }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}lo{p_end}
+{p 0 48}{bind:oxytox         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}oxytox{p_end}
+{p 0 48}{bind:iodfd1         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodfd1{p_end}
+{p 0 48}{bind:iodfd2         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodfd2{p_end}
+{p 0 48}{bind:iodmp1         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodmp1{p_end}
+{p 0 48}{bind:iodmp2         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodmp2{p_end}
+{p 0 48}{bind:iodftp         }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodftp{p_end}
+{p 0 48}{bind:iodother       }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}iodother{p_end}
+{p 0 48}{bind:pih            }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pih{p_end}
+{p 0 48}{bind:pwt            }{txt}{bind: int     }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}pwt{p_end}
+{p 0 48}{bind:ga             }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}ga{p_end}
+{p 0 48}{bind:nhn1           }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}nhn1{p_end}
+{p 0 48}{bind:nhn2           }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}nhn2{p_end}
+{p 0 48}{bind:nhn3           }{txt}{bind: byte    }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}nhn3{p_end}
+{p 0 48}{bind:bw_kg          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:lbw_kg         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: 
+
+{com}. ren GENDER1G GENDERG1
+{res}
+{com}. ren GENDER2G GENDERG2
+{res}
+{com}. ren HT2HEIGH HTHEIGH2
+{res}
+{com}. ren WT2WEIGH WTWEIGH2
+{res}
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta saved
+
+{com}. save "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+{txt}file C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta saved
+
+{com}. use "C:\Users\welcome\Dropbox\My PC (LAPTOP-E0CLJDR9)\Desktop\Sir work\final\twin_study_37.dta", replace
+
+. ed
+
+. ed AXLENRE ANTCHAMR ANTCHAM SPECRES IOPREIO LENSTHIRE CORNEAL AMPAMPL REFERR AXLENLE LENSTHI ANTCHAML
+{bf}{err}AXLENRE{sf} ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. ed AXLENRE1 AXLENRE2   ANTCHAMR1 ANTCHAML2   ANTCHAM1 ANTCHAM2   SPECRES1 SPECRES2   IOPREIO1 IOPREIO2    CORNEAL1 CORNEAL2   AMPAMPL1 AMPAMPL2    AXLENLE1 AXLENLE2
+
+. ed
+
+. ed KERATONL KERATONL2
+{err}variable {bf}KERATONL2{sf} not found
+{txt}{search r(111):r(111);}
+
+{com}. ren KERATONL KERATONL2
+{res}
+{com}. ren KERATONR KERATONR1
+{res}
+{com}. ren KERATODR KERATODR1
+{res}
+{com}. ren KERATODL KERATODL2
+{res}
+{com}. ren KERATODR KERATODR1
+{res}{err}variable {bf}KERATODR1{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. ren KERATODR KERATODR1
+{res}{err}variable {bf}KERATODR1{sf} already defined
+{txt}{search r(110):r(110);}
+
+{com}. exit, clear
